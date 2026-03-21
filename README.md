@@ -12,7 +12,7 @@ The base game itself is left as is, with the new content put on top of it. So yo
 
 - Original creepypasta fully recreated with minor removals and some major changes.
 
--It imitates an existing hacked save file, emphasizing the fact that the original owner of the save is a cheater (Many vanilla progression flags are set while others aren't.)
+- It imitates an existing hacked save file, emphasizing the fact that the original owner of the save is a cheater (Many vanilla progression flags are set while others aren't.)
 
 - An optional bonus event *(Hint: Maybe go check out Celadon City?)*
 
