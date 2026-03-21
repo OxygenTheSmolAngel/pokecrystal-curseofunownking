@@ -1,4 +1,8 @@
 PlayRadioShow:
+; If the Unown King is awake, disable the radio.
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
+	jr nz, .disabled
 ; If we're already in the radio program proper, we don't need to be here.
 	ld a, [wCurRadioLine]
 	cp POKE_FLUTE_RADIO
@@ -17,6 +21,11 @@ PlayRadioShow:
 .ok
 ; Jump to the currently loaded station.  The index to which we need to jump is in wCurRadioLine.
 	jumptable RadioJumptable, wCurRadioLine
+.disabled
+	farcall NoRadioStationAlt
+	ld hl, Silence_Text
+	call PrintTextboxText
+    ret
 
 RadioJumptable:
 ; entries correspond to constants/radio_constants.asm
@@ -1765,6 +1774,10 @@ BuenaRadioMidnightText10:
 
 BuenaOffTheAirText:
 	text_far _BuenaOffTheAirText
+	text_end
+
+Silence_Text:
+	text_far _Silence_Text
 	text_end
 
 CopyRadioTextToRAM:

@@ -553,6 +553,7 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_UnkiBlink            ; 1c
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_Null:
@@ -994,6 +995,40 @@ InitMovementField1dField1e:
 	ld [hl], e
 	inc hl ; OBJECT_1E
 	ld [hl], d
+	ret
+
+MovementFunction_UnkiBlink:
+	call ObjectMovement_AnonJumptable
+.anon_dw
+	dw _MovementSpinInit
+	dw _MovementSpinRepeatUnki
+	dw _MovementSpinTurnDown
+
+_MovementSpinTurnDown:
+	ld de, .facings_blink
+	call _MovementSpinNextFacing
+	jp MovementFunction_UnkiBlink
+
+.facings_blink:
+	db OW_UP
+	db OW_LEFT
+	db OW_DOWN
+
+_MovementSpinRepeatUnki:
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], OBJECT_ACTION_STAND
+	ld hl, OBJECT_RANGE
+	add hl, bc
+	ld a, [hl]
+	ld a, $8
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	ld [hl], a
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_SLEEP
+	call ObjectMovement_IncAnonJumptableIndex
 	ret
 
 MovementFunction_ScreenShake:

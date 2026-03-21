@@ -7,6 +7,27 @@ OverworldWhiteoutScript::
 	callasm OverworldBGMap
 
 Script_Whiteout:
+	checkflag ENGINE_UNOWNKING_TRIGGER
+	iffalse .NormalBattle
+	writetext .GameOverText
+	waitbutton
+	special FadeOutMusic
+	callasm SlowFadeOut
+	pause 10
+	callasm HideSpritesScript
+	callasm LoadTrainerPicScript
+	pause 20
+	special FadeInFromWhite
+	pause 35
+	writetext .FinalSpeechText
+	pause 30
+	callasm FadeOutWhite
+	pause 120
+	callasm DeleteSave
+	special Reset
+	endall
+
+.NormalBattle:
 	writetext .WhitedOutText
 	waitbutton
 	special FadeOutToWhite
@@ -27,6 +48,53 @@ Script_Whiteout:
 .WhitedOutText:
 	text_far _WhitedOutText
 	text_end
+
+.GameOverText:
+	text_far _WhitedOutUnkiText
+	text_end
+
+.FinalSpeechText:
+	text_far _FinalSpeechText
+	text_end
+
+HideSpritesScript:
+	hlcoord 0, 0
+	lb bc, 8, 21
+	call ClearBox
+	call ClearTilemap
+	ret
+
+LoadTrainerPicScript:
+	xor a
+	ld [wCurPartySpecies], a
+	ld a, POKEMON_PROF
+	ld [wTrainerClass], a
+	ld de, vTiles2
+	callfar GetTrainerPic
+	xor a
+	ldh [hGraphicStartTile], a
+	hlcoord 6, 4
+	lb bc, 7, 7
+	predef PlaceGraphic
+	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
+	call GetSGBLayout
+	ret
+
+SlowFadeOut:
+	call RotateFourPalettesLeft
+	ret
+
+SlowFadeIn:
+	call RotateFourPalettesRight
+	ret
+
+FadeOutWhite:
+	call RotateThreePalettesRight
+	ret
+
+DeleteSave:
+	farcall EmptyAllSRAMBanks
+	ret
 
 OverworldBGMap:
 	call ClearPalettes
@@ -71,3 +139,4 @@ GetWhiteoutSpawn:
 .yes
 	ld [wDefaultSpawnpoint], a
 	ret
+

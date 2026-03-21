@@ -23,6 +23,8 @@ NewBarkTownFlypointCallback:
 	endcallback
 
 NewBarkTown_TeacherStopsYouScene1:
+	checkevent EVENT_UNOWNKING_AWAKENING
+	iftrue .EventDeactivated1
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
 	opentext
@@ -45,7 +47,12 @@ NewBarkTown_TeacherStopsYouScene1:
 	special RestartMapMusic
 	end
 
+.EventDeactivated1:
+    end
+
 NewBarkTown_TeacherStopsYouScene2:
+	checkevent EVENT_UNOWNKING_AWAKENING
+	iftrue .EventDeactivated2
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
 	opentext
@@ -68,6 +75,9 @@ NewBarkTown_TeacherStopsYouScene2:
 	closetext
 	special RestartMapMusic
 	end
+
+.EventDeactivated2:
+    end
 
 NewBarkTownTeacherScript:
 	faceplayer
@@ -299,6 +309,6 @@ NewBarkTown_MapEvents:
 	bg_event  9, 13, BGEVENT_READ, NewBarkTownElmsHouseSign
 
 	def_object_events
-	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
-	object_event 12,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
+	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, EVENT_UNOWNKING_AWAKENING
+	object_event 12,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, EVENT_UNOWNKING_AWAKENING
 	object_event  3,  2, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownRivalScript, EVENT_RIVAL_NEW_BARK_TOWN

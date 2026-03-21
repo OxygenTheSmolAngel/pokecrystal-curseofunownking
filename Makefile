@@ -1,6 +1,6 @@
 roms := \
-	pokecrystal.gbc
-patches := pokecrystal.patch
+	unownking.gbc
+patches := unownking.patch
 
 rom_obj := \
 	audio.o \
@@ -21,8 +21,8 @@ rom_obj := \
 	lib/mobile/main.o \
 	lib/mobile/mail.o
 
-pokecrystal_obj         := $(rom_obj:.o=.o)
-pokecrystal11_vc_obj    := $(rom_obj:.o=_vc.o)
+unownking_obj         := $(rom_obj:.o=.o)
+unownking11_vc_obj    := $(rom_obj:.o=_vc.o)
 
 
 ### Build tools
@@ -59,8 +59,8 @@ RGBGFXFLAGS  ?= -Weverything
 	tools
 
 all: crystal
-crystal:    pokecrystal.gbc
-crystal_vc: pokecrystal.patch
+crystal:    unownking.gbc
+crystal_vc: unownking.patch
 
 clean: tidy
 	find gfx \
@@ -86,8 +86,8 @@ tidy:
 	      $(patches:.patch=_vc.sym) \
 	      $(patches:.patch=_vc.map) \
 	      $(patches:%.patch=vc/%.constants.sym) \
-	      $(pokecrystal_obj) \
-	      $(pokecrystal_vc_obj) \
+	      $(unownking_obj) \
+	      $(unownking_vc_obj) \
 	      rgbdscheck.o
 	$(MAKE) clean -C tools/
 
@@ -101,8 +101,8 @@ ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
 
-$(pokecrystal_obj):         RGBASMFLAGS +=
-$(pokecrystal_vc_obj):      RGBASMFLAGS += -D _CRYSTAL_VC
+$(unownking_obj):         RGBASMFLAGS +=
+$(unownking_vc_obj):      RGBASMFLAGS += -D _CRYSTAL_VC
 
 %.patch: %_vc.gbc %.gbc vc/%.patch.template
 # Ignore the checksums added by tools/stadium at the end of the ROM
@@ -127,15 +127,15 @@ $1: $2 $$(shell tools/scan_includes $2) $(preinclude_deps) | rgbdscheck.o
 endef
 
 # Dependencies for shared objects objects
-$(foreach obj, $(pokecrystal_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
-$(foreach obj, $(pokecrystal_vc_obj), $(eval $(call DEP,$(obj),$(obj:_vc.o=.asm))))
+$(foreach obj, $(unownking_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
+$(foreach obj, $(unownking_vc_obj), $(eval $(call DEP,$(obj),$(obj:_vc.o=.asm))))
 
 endif
 
 
 RGBFIXFLAGS += -Cjv -t PM_CRYSTAL -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-pokecrystal.gbc:      RGBFIXFLAGS += -i BYTE -n 0
-pokecrystal11_vc.gbc: RGBFIXFLAGS += -i BYTE -n 1
+unownking.gbc:      RGBFIXFLAGS += -i BYTE -n 0
+unownking11_vc.gbc: RGBFIXFLAGS += -i BYTE -n 1
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) $(RGBLINKFLAGS) -l layout.link -n $*.sym -m $*.map -o $@ $(filter %.o,$^)

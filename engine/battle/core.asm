@@ -2258,7 +2258,14 @@ FaintYourPokemon:
 	hlcoord 9, 7
 	lb bc, 5, 11
 	call ClearBox
+	ld a, [wBattleType]
+	cp BATTLETYPE_UNOWNKING
+	jr z, .FaintUnki
 	ld hl, BattleText_MonFainted
+	jp StdBattleTextbox
+
+.FaintUnki
+	ld hl, BattleText_MonFaintedToUnki
 	jp StdBattleTextbox
 
 FaintEnemyPokemon:
@@ -2609,6 +2616,51 @@ HandlePlayerMonFaint:
 	ld a, $1
 	ld [wWhichMonFaintedFirst], a
 	call UpdateFaintedPlayerMon
+	farcall CheckCurPartyMonFainted
+	jr c, .trainermon
+	call CheckPlayerPartyForFitMon
+	ld a, d
+	and a
+	jp z, LostBattle
+	ld hl, wEnemyMonHP
+	ld a, [hli]
+	or [hl]
+	jr nz, .notfainted
+	call UpdateBattleStateAndExperienceAfterEnemyFaint
+	ld a, [wBattleMode]
+	dec a
+	jr nz, .trainer
+	ld a, $1
+	ld [wBattleEnded], a
+	ret
+
+.trainermon
+	ld a, [wBattleType]
+	cp BATTLETYPE_UNOWNKING
+	jp nz, .donothing
+	ld a, [wPartyCount]
+	cp 3
+	jp z, .donothing
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, GOLD
+	ld [wTempEnemyMonSpecies], a
+	ld a, 10
+	ld [wCurPartyLevel], a
+	ld a, [wTempEnemyMonSpecies]
+	ld [wCurPartySpecies], a
+	farcall LoadEnemyMon
+	predef TryAddMonToParty
+	call UpdateBattleMonInParty
+
+	ld a, UNOWNKING
+	ld [wEnemyMonSpecies], a
+	ld a, 100
+	ld [wCurPartyLevel], a
+	ld a, [wEnemyMonSpecies]
+	ld [wTempEnemyMonSpecies], a
+	farcall LoadEnemyMon
+
 	call CheckPlayerPartyForFitMon
 	ld a, d
 	and a
@@ -2648,6 +2700,24 @@ HandlePlayerMonFaint:
 	call HandleEnemySwitch
 	jp z, WildFled_EnemyFled_LinkBattleCanceled
 	jp DoubleSwitch
+
+
+.donothing:
+	call CheckPlayerPartyForFitMon
+	ld a, d
+	and a
+	jp z, LostBattle
+	ld hl, wEnemyMonHP
+	ld a, [hli]
+	or [hl]
+	jr nz, .notfainted
+	call UpdateBattleStateAndExperienceAfterEnemyFaint
+	ld a, [wBattleMode]
+	dec a
+	jr nz, .trainer
+	ld a, $1
+	ld [wBattleEnded], a
+	ret
 
 UpdateFaintedPlayerMon:
 	ld a, [wCurBattleMon]
@@ -3688,6 +3758,8 @@ TryToRunAwayFromBattle:
 	jp z, .cant_escape
 	cp BATTLETYPE_SUICUNE
 	jp z, .cant_escape
+	cp BATTLETYPE_UNOWNKING
+	jp z, .cant_escape_3
 
 	ld a, [wLinkMode]
 	and a
@@ -3792,6 +3864,10 @@ TryToRunAwayFromBattle:
 
 .cant_escape
 	ld hl, BattleText_CantEscape
+	jr .print_inescapable_text
+
+.cant_escape_3
+	ld hl, BattleText_CantEscapeUnki
 	jr .print_inescapable_text
 
 .cant_run_from_trainer
@@ -9129,6 +9205,9 @@ BattleStartMessage:
 	jr z, .PrintBattleStartText
 	ld hl, WildCelebiAppearedText
 	cp BATTLETYPE_CELEBI
+	jr z, .PrintBattleStartText
+	ld hl, WildUnownKingAppearedText
+	cp BATTLETYPE_UNOWNKING
 	jr z, .PrintBattleStartText
 	ld hl, WildPokemonAppearedText
 

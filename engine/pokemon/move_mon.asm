@@ -1370,6 +1370,150 @@ RemoveMonFromPartyOrBox:
 .close_sram
 	jp CloseSRAM
 
+RemoveMonFromPartyOrBoxAlt:
+	ld hl, wPartyCount
+
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jr z, .okay
+
+	ld a, BANK(sBoxCount)
+	call OpenSRAM
+	ld hl, sBoxCount
+
+.okay
+	ld a, [hl]
+	dec a
+	ld [hli], a
+	ld a, [wCurPartyMon]
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld e, l
+	ld d, h
+	inc de
+.loop
+	ld a, [de]
+	inc de
+	ld [hli], a
+	inc a
+	jr nz, .loop
+	ld hl, wPartyMonOTs
+	ld d, PARTY_LENGTH - 1
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jr z, .party
+	ld hl, sBoxMonOTs
+	ld d, MONS_PER_BOX - 1
+
+.party
+	; If this is the last mon in our party (box),
+	; shift all the other mons up to close the gap.
+	ld a, [wCurPartyMon]
+	call SkipNames
+	ld a, [wCurPartyMon]
+	cp d
+	jr nz, .delete_inside
+	ld [hl], -1
+	jp .finish
+
+.delete_inside
+	; Shift the OT names
+	ld d, h
+	ld e, l
+	ld bc, MON_NAME_LENGTH
+	add hl, bc
+	ld bc, wPartyMonNicknames
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jr z, .party2
+	ld bc, sBoxMonNicknames
+.party2
+	call CopyDataUntil
+	; Shift the struct
+	ld hl, wPartyMons
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jr z, .party4
+	ld hl, sBoxMons
+	ld bc, BOXMON_STRUCT_LENGTH
+.party4
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jr z, .party5
+	ld bc, BOXMON_STRUCT_LENGTH
+	add hl, bc
+	ld bc, sBoxMonOTs
+	jr .copy
+
+.party5
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	ld bc, wPartyMonOTs
+.copy
+	call CopyDataUntil
+	; Shift the nicknames
+	ld hl, wPartyMonNicknames
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jr z, .party6
+	ld hl, sBoxMonNicknames
+.party6
+	ld bc, MON_NAME_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld bc, MON_NAME_LENGTH
+	add hl, bc
+	ld bc, wPartyMonNicknamesEnd
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jr z, .party7
+	ld bc, sBoxMonNicknamesEnd
+.party7
+	call CopyDataUntil
+	; Mail time!
+.finish
+	ld a, [wPokemonWithdrawDepositParameter]
+	and a
+	jp nz, CloseSRAM
+	ld a, [wLinkMode]
+	and a
+	ret nz
+	; Shift mail
+	ld a, BANK(sPartyMail)
+	call OpenSRAM
+	; Shift our mail messages up.
+	ld hl, sPartyMail
+	ld bc, MAIL_STRUCT_LENGTH
+	call AddNTimes
+	push hl
+	add hl, bc
+	pop de
+	ld a, [wCurPartyMon]
+	ld b, a
+.loop2
+	push bc
+	push hl
+	ld bc, MAIL_STRUCT_LENGTH
+	call CopyBytes
+	pop hl
+	push hl
+	ld bc, MAIL_STRUCT_LENGTH
+	add hl, bc
+	pop de
+	pop bc
+	inc b
+.close_sram
+	jp CloseSRAM
+
+
 ComputeNPCTrademonStats:
 	ld a, MON_LEVEL
 	call GetPartyParamLocation

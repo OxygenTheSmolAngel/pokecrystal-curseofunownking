@@ -12,13 +12,12 @@ InitClock:
 	ld [wSpriteUpdatesEnabled], a
 	ld a, $10
 	ld [wMusicFade], a
-	ld a, LOW(MUSIC_NONE)
+	ld a, LOW(MUSIC_POST_CREDITS)
 	ld [wMusicFadeID], a
-	ld a, HIGH(MUSIC_NONE)
+	ld a, HIGH(MUSIC_POST_CREDITS)
 	ld [wMusicFadeID + 1], a
 	ld c, 8
 	call DelayFrames
-	call RotateFourPalettesLeft
 	call ClearTilemap
 	call ClearSprites
 	ld b, SCGB_DIPLOMA
@@ -53,15 +52,15 @@ InitClock:
 .loop
 	ld hl, OakTimeWhatTimeIsItText
 	call PrintText
-	hlcoord 3, 7
+	hlcoord 3, 3
 	ld b, 2
 	ld c, 15
 	call Textbox
-	hlcoord 11, 7
+	hlcoord 11, 3
 	ld [hl], $1
-	hlcoord 11, 10
+	hlcoord 11, 6
 	ld [hl], $2
-	hlcoord 4, 9
+	hlcoord 4, 5
 	call DisplayHourOClock
 	ld c, 10
 	call DelayFrames
@@ -84,14 +83,14 @@ InitClock:
 .HourIsSet:
 	ld hl, OakTimeHowManyMinutesText
 	call PrintText
-	hlcoord 11, 7
+	hlcoord 11, 3
 	lb bc, 2, 7
 	call Textbox
-	hlcoord 15, 7
+	hlcoord 15, 3
 	ld [hl], $1
-	hlcoord 15, 10
+	hlcoord 15, 6
 	ld [hl], $2
-	hlcoord 12, 9
+	hlcoord 12, 5
 	call DisplayMinutesWithMinString
 	ld c, 10
 	call DelayFrames
@@ -113,9 +112,6 @@ InitClock:
 
 .MinutesAreSet:
 	call InitTimeOfDay
-	ld hl, OakText_ResponseToSetTime
-	call PrintText
-	call WaitPressAorB_BlinkCursor
 	pop af
 	ldh [hInMenu], a
 	ret
@@ -169,11 +165,11 @@ SetHour:
 	ld [hl], a
 
 .okay
-	hlcoord 4, 9
+	hlcoord 4, 5
 	ld a, ' '
 	ld bc, 15
 	call ByteFill
-	hlcoord 4, 9
+	hlcoord 4, 5
 	call DisplayHourOClock
 	call WaitBGMap
 	and a
@@ -258,11 +254,11 @@ SetMinutes:
 	inc a
 	ld [hl], a
 .finish_dpad
-	hlcoord 12, 9
+	hlcoord 12, 5
 	ld a, ' '
 	ld bc, 7
 	call ByteFill
-	hlcoord 12, 9
+	hlcoord 12, 5
 	call DisplayMinutesWithMinString
 	call WaitBGMap
 	and a
@@ -321,7 +317,7 @@ String_min:
 	db "min.@"
 
 OakTimeWhoaMinutesText:
-	; Whoa!@ @
+	; Sleep for @ @
 	text_far _OakTimeWhoaMinutesText
 	text_asm
 	hlcoord 7, 14
@@ -331,48 +327,6 @@ OakTimeWhoaMinutesText:
 
 .OakTimeMinutesQuestionMarkText:
 	text_far _OakTimeMinutesQuestionMarkText
-	text_end
-
-OakText_ResponseToSetTime:
-	text_asm
-	decoord 1, 14
-	ld a, [wInitHourBuffer]
-	ld c, a
-	call PrintHour
-	ld [hl], ':'
-	inc hl
-	ld de, wInitMinuteBuffer
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ld b, h
-	ld c, l
-	ld a, [wInitHourBuffer]
-	cp MORN_HOUR
-	jr c, .nite
-	cp DAY_HOUR + 1
-	jr c, .morn
-	cp NITE_HOUR
-	jr c, .day
-.nite
-	ld hl, .OakTimeSoDarkText
-	ret
-.morn
-	ld hl, .OakTimeOversleptText
-	ret
-.day
-	ld hl, .OakTimeYikesText
-	ret
-
-.OakTimeOversleptText:
-	text_far _OakTimeOversleptText
-	text_end
-
-.OakTimeYikesText:
-	text_far _OakTimeYikesText
-	text_end
-
-.OakTimeSoDarkText:
-	text_far _OakTimeSoDarkText
 	text_end
 
 TimeSetBackgroundGFX:
@@ -433,7 +387,13 @@ SetDayOfWeek:
 	call LoadStandardFont
 	pop af
 	ldh [hInMenu], a
+	ld hl, .TimeToSleepText
+	call PrintText
 	ret
+
+.TimeToSleepText:
+	text_far _SleepingText
+	text_end
 
 .GetJoypadAction:
 	ldh a, [hJoyPressed]

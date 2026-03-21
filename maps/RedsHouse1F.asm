@@ -88,4 +88,4 @@ RedsHouse1F_MapEvents:
 	bg_event  2,  1, BGEVENT_READ, RedsHouse1FTV
 
 	def_object_events
-	object_event  5,  3, SPRITE_REDS_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RedsMom, -1
+	object_event  5,  3, SPRITE_REDS_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RedsMom, EVENT_UNOWNKING_AWAKENING

@@ -214,6 +214,9 @@ PokeBallEffect:
 	ld a, [wBattleMode]
 	dec a
 	jp nz, UseBallInTrainerBattle
+	ld a, [wBattleType]
+	cp BATTLETYPE_UNOWNKING
+	jp z, UseBallInUnkiBattle
 
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
@@ -2584,6 +2587,25 @@ UseBallInTrainerBattle:
 	call PrintText
 	jr UseDisposableItem
 
+UseBallInUnkiBattle:
+	call ReturnToBattle_UseBall
+	ld de, ANIM_THROW_POKE_BALL
+	ld a, e
+	ld [wFXAnimID], a
+	ld a, d
+	ld [wFXAnimID + 1], a
+	xor a
+	ld [wBattleAnimParam], a
+	ldh [hBattleTurn], a
+	ld [wBattleAfterAnim], a
+	predef PlayBattleAnim
+	ld hl, BallBlockedUnkiText
+	call PrintText
+	ld hl, BallTooStrongText
+	call PrintText
+	jr UseDisposableItem
+
+
 WontHaveAnyEffect_NotUsedMessage:
 	ld hl, ItemWontHaveEffectText
 	call PrintText
@@ -2662,6 +2684,14 @@ BallBlockedText:
 
 BallDontBeAThiefText:
 	text_far _BallDontBeAThiefText
+	text_end
+
+BallBlockedUnkiText:
+	text_far _BallBlockedUnkiText
+	text_end
+
+BallTooStrongText:
+	text_far _BallTooStrongText
 	text_end
 
 NoCyclingText:

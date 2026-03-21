@@ -8,9 +8,14 @@ OaksLab_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, OaksLabPlayMusicCallback
 
 OaksLabNoopScene: ; unreferenced
 	end
+
+OaksLabPlayMusicCallback:
+    special FadeOutMusic
+    endcallback
 
 Oak:
 	faceplayer
@@ -76,6 +81,22 @@ OaksLabTrashcan:
 
 OaksLabPC:
 	jumptext OaksLabPCText
+
+UnownKingEncounterScript:
+    special FadeOutMusic
+    pause 20
+    opentext
+  	earthquake 20
+   	writetext UnkiCry2
+	cry UNOWNKING
+	pause 15
+	closetext
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWNKING
+	loadwildmon UNOWNKING, 100
+	startbattle
+	reloadmapafterbattle
+	end
+
 
 OakWelcomeKantoText:
 	text "OAK: Ah, <PLAY_G>!"
@@ -254,6 +275,11 @@ OaksLabPCText:
 	line "TOWN 8-)"
 	done
 
+UnkiCry2:
+    text "King! Unkiing!"
+    done
+
+
 OaksLab_MapEvents:
 	db 0, 0 ; filler
 
@@ -282,7 +308,8 @@ OaksLab_MapEvents:
 	bg_event  0,  1, BGEVENT_READ, OaksLabPC
 
 	def_object_events
-	object_event  4,  2, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Oak, -1
-	object_event  1,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant1Script, -1
-	object_event  8,  9, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant2Script, -1
-	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant3Script, -1
+	object_event  4,  2, SPRITE_OAK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Oak, EVENT_UNOWNKING_AWAKENING
+	object_event  1,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant1Script, EVENT_UNOWNKING_AWAKENING
+	object_event  8,  9, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant2Script, EVENT_UNOWNKING_AWAKENING
+	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant3Script, EVENT_UNOWNKING_AWAKENING
+	object_event  4,  2, SPRITE_UNKI, SPRITEMOVEDATA_UNKI_BLINK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, UnownKingEncounterScript, EVENT_UNOWNKING_ROADBLOCKS

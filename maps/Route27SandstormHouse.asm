@@ -105,4 +105,4 @@ Route27SandstormHouse_MapEvents:
 	bg_event  1,  1, BGEVENT_READ, SandstormHouseBookshelf
 
 	def_object_events
-	object_event  2,  4, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SandstormHouseWoman, -1
+	object_event  2,  4, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SandstormHouseWoman, EVENT_UNOWNKING_AWAKENING

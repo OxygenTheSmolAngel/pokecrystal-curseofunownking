@@ -13,6 +13,9 @@
 	const PCPCITEM_TURN_OFF     ; 4
 
 PokemonCenterPC:
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
+	jr nz, .brokenpc
 	call PC_CheckPartyForPokemon
 	ret c
 	call PC_PlayBootSound
@@ -38,6 +41,13 @@ PokemonCenterPC:
 	call PC_PlayShutdownSound
 	call ExitMenu
 	call CloseWindow
+	ret
+
+.brokenpc
+	call PC_PlayBootSound
+	ld hl, PokecenterBrokenPCText
+	call PC_DisplayText
+	call PC_PlayShutdownSound
 	ret
 
 .TopMenu:
@@ -656,6 +666,10 @@ PC_DisplayText:
 
 PokecenterPCTurnOnText:
 	text_far _PokecenterPCTurnOnText
+	text_end
+
+PokecenterBrokenPCText:
+	text_far _PokecenterBrokenPCText
 	text_end
 
 PokecenterPCWhoseText:

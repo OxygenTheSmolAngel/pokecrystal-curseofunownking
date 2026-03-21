@@ -881,8 +881,8 @@ _PhoneEllipseText::
 	done
 
 _PhoneOutOfAreaText::
-	text "That number is out"
-	line "of the area."
+	text "But no one"
+	line "picked up…"
 	done
 
 _PhoneJustTalkToThemText::
@@ -1368,6 +1368,18 @@ _BallBlockedText::
 
 _BallDontBeAThiefText::
 	text "Don't be a thief!"
+	prompt
+
+_BallBlockedUnkiText::
+	text "The @"
+	text_ram wEnemyMonNickname
+	text_start
+	line "blocked the BALL!"
+	prompt
+
+_BallTooStrongText::
+	text "He was way too"
+	line "strong…"
 	prompt
 
 _NoCyclingText::

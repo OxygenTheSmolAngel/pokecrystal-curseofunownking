@@ -50,22 +50,6 @@ WiseTriosRoomSage2Script:
 WiseTriosRoomSage3Script:
 	jumptextfaceplayer WiseTriosRoomSage3Text
 
-WiseTriosRoom_CannotEnterTinTowerScript:
-	turnobject WISETRIOSROOM_SAGE3, UP
-	turnobject PLAYER, DOWN
-	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE3, 20
-	follow PLAYER, WISETRIOSROOM_SAGE3
-	applymovement PLAYER, WiseTriosRoomSageBlocksPlayerMovement
-	stopfollow
-	turnobject PLAYER, RIGHT
-	opentext
-	writetext WiseTriosRoomSage3BlocksExitText
-	waitbutton
-	closetext
-	applymovement WISETRIOSROOM_SAGE3, WiseTriosRoomSageReturnsMovement
-	turnobject WISETRIOSROOM_SAGE3, LEFT
-	end
-
 TrainerSageGaku:
 	trainer SAGE, GAKU, EVENT_BEAT_SAGE_GAKU, SageGakuSeenText, SageGakuBeatenText, 0, .Script
 
@@ -351,7 +335,6 @@ WiseTriosRoom_MapEvents:
 	warp_event  1,  4, ECRUTEAK_TIN_TOWER_ENTRANCE, 5
 
 	def_coord_events
-	coord_event  7,  4, SCENE_WISETRIOSROOM_SAGE_BLOCKS, WiseTriosRoom_CannotEnterTinTowerScript
 
 	def_bg_events
 

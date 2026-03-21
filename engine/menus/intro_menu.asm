@@ -63,9 +63,10 @@ NewGame:
 	ld [wDebugFlags], a
 	call ResetWRAM
 	call NewGame_ClearTilemapEtc
-	call PlayerProfileSetup
-	call OakSpeech
 	call InitializeWorld
+	call InitializeParty
+	call InitializeBox
+	farcall _InitTime
 
 	ld a, LANDMARK_NEW_BARK_TOWN
 	ld [wPrevLandmark], a
@@ -194,7 +195,7 @@ _ResetWRAM:
 	ld [wCoins], a
 	ld [wCoins + 1], a
 
-if START_MONEY >= $10000
+if START_MONEY >= $999999
 	ld a, HIGH(START_MONEY >> 8)
 endc
 	ld [wMoney], a
@@ -262,7 +263,7 @@ SetDefaultBoxNames:
 	ret
 
 .Box:
-	db "BOX@"
+	db "PANDORA@"
 
 InitializeMagikarpHouse:
 	ld hl, wBestMagikarpLengthFeet
@@ -278,6 +279,10 @@ InitializeMagikarpHouse:
 	db "RALPH@"
 
 InitializeNPCNames:
+	ld hl, .Player
+	ld de, wPlayerName
+	call .Copy
+
 	ld hl, .Rival
 	ld de, wRivalName
 	call .Copy
@@ -298,13 +303,13 @@ InitializeNPCNames:
 	call CopyBytes
 	ret
 
-.Rival:  db "???@"
+.Rival:  db "JUDAS@"
 .Red:    db "RED@"
 .Green:  db "GREEN@"
 .Mom:    db "MOM@"
+.Player: db "SUSEJ@"
 
 InitializeWorld:
-	call ShrinkPlayer
 	farcall SpawnPlayer
 	farcall _InitializeStartDay
 	ret
@@ -633,7 +638,7 @@ OakSpeech:
 	call RotateFourPalettesLeft
 	call ClearTilemap
 
-	ld de, MUSIC_ROUTE_30
+	ld de, MUSIC_NONE
 	call PlayMusic
 
 	call RotateFourPalettesRight
@@ -739,6 +744,139 @@ OakText7:
 	text_far _OakText7
 	text_end
 
+InitializeParty:
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, HOUNDOOM
+	ld [wCurPartySpecies], a
+	ld a, 66
+	ld [wCurPartyLevel], a
+	predef TryAddMonToParty
+	ld b, CAUGHT_BY_UNKNOWN
+	farcall SetGiftPartyMonCaughtData
+	ld hl, wPartyMonNicknames
+	call SkipNames
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMonOTs
+	call SkipNames
+
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, SLOWBRO
+	ld [wCurPartySpecies], a
+	ld a, 32
+	ld [wCurPartyLevel], a
+	predef TryAddMonToParty
+	ld b, CAUGHT_BY_UNKNOWN
+	farcall SetGiftPartyMonCaughtData
+	ld hl, wPartyMonNicknames
+	call SkipNames
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMonOTs
+	call SkipNames
+
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, LAPRAS
+	ld [wCurPartySpecies], a
+	ld a, 63
+	ld [wCurPartyLevel], a
+	predef TryAddMonToParty
+	ld b, CAUGHT_BY_UNKNOWN
+	farcall SetGiftPartyMonCaughtData
+	ld hl, wPartyMonNicknames
+	call SkipNames
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMonOTs
+	call SkipNames
+
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, SANDSHREW
+	ld [wCurPartySpecies], a
+	ld a, 6
+	ld [wCurPartyLevel], a
+	predef TryAddMonToParty
+	ld b, CAUGHT_BY_UNKNOWN
+	farcall SetGiftPartyMonCaughtData
+	ld hl, wPartyMonNicknames
+	call SkipNames
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMonOTs
+	call SkipNames
+
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, ABRA
+	ld [wCurPartySpecies], a
+	ld a, 12
+	ld [wCurPartyLevel], a
+	predef TryAddMonToParty
+	ld b, CAUGHT_BY_UNKNOWN
+	farcall SetGiftPartyMonCaughtData
+	ld hl, wPartyMonNicknames
+	call SkipNames
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMonOTs
+	call SkipNames
+
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, PIDGEY
+	ld [wCurPartySpecies], a
+	ld a, 3
+	ld [wCurPartyLevel], a
+	predef TryAddMonToParty
+	ld b, CAUGHT_BY_UNKNOWN
+	farcall SetGiftPartyMonCaughtData
+	ld hl, wPartyMonNicknames
+	call SkipNames
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMonOTs
+	call SkipNames
+	ret
+
+InitializeBox:
+	xor a ; BOXMON
+	ld [wMonType], a
+	ld a, MEWTWO
+	ld [wTempEnemyMonSpecies], a
+	ld a, 70
+	ld [wCurPartyLevel], a
+	ld a, [wTempEnemyMonSpecies]
+	ld [wCurPartySpecies], a
+	farcall LoadEnemyMon
+	predef SendMonIntoBox
+
+	xor a ; BOXMON
+	ld [wMonType], a
+	ld a, MEW
+	ld [wTempEnemyMonSpecies], a
+	ld a, 15
+	ld [wCurPartyLevel], a
+	ld a, [wTempEnemyMonSpecies]
+	ld [wCurPartySpecies], a
+	farcall LoadEnemyMon
+	predef SendMonIntoBox
+
+	xor a ; BOXMON
+	ld [wMonType], a
+	ld a, HO_OH
+	ld [wTempEnemyMonSpecies], a
+	ld a, 60
+	ld [wCurPartyLevel], a
+	ld a, [wTempEnemyMonSpecies]
+	ld [wCurPartySpecies], a
+	farcall LoadEnemyMon
+	predef SendMonIntoBox
+	ret
+
 NamePlayer:
 	farcall MovePlayerPicRight
 	farcall ShowPlayerNamingChoices
@@ -801,58 +939,6 @@ StorePlayerName:
 	ld hl, wPlayerName
 	ld de, wStringBuffer2
 	call CopyName2
-	ret
-
-ShrinkPlayer:
-	ldh a, [hROMBank]
-	push af
-
-	ld a, 32 ; fade time
-	ld [wMusicFade], a
-	ld de, MUSIC_NONE
-	ld a, e
-	ld [wMusicFadeID], a
-	ld a, d
-	ld [wMusicFadeID + 1], a
-
-	ld de, SFX_ESCAPE_ROPE
-	call PlaySFX
-	pop af
-	rst Bankswitch
-
-	ld c, 8
-	call DelayFrames
-
-	ld hl, Shrink1Pic
-	ld b, BANK(Shrink1Pic)
-	call ShrinkFrame
-
-	ld c, 8
-	call DelayFrames
-
-	ld hl, Shrink2Pic
-	ld b, BANK(Shrink2Pic)
-	call ShrinkFrame
-
-	ld c, 8
-	call DelayFrames
-
-	hlcoord 6, 5
-	ld b, 7
-	ld c, 7
-	call ClearBox
-
-	ld c, 3
-	call DelayFrames
-
-	call Intro_PlacePlayerSprite
-	call LoadFontsExtra
-
-	ld c, 50
-	call DelayFrames
-
-	call RotateThreePalettesRight
-	call ClearTilemap
 	ret
 
 Intro_RotatePalettesLeftFrontpic:
@@ -956,6 +1042,17 @@ Intro_PlacePlayerSprite:
 	db 10 * TILE_WIDTH + 4,  9 * TILE_WIDTH, 2
 	db 10 * TILE_WIDTH + 4, 10 * TILE_WIDTH, 3
 
+Credits:
+	call ClearTilemap
+
+      ; Display text
+	ld hl, CreditsText
+	call PrintText
+	ret
+
+CreditsText:
+	text_far _CreditsText
+	text_end
 
 	const_def
 	const TITLESCREENOPTION_MAIN_MENU

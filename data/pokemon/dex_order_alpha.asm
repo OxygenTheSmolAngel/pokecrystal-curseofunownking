@@ -73,6 +73,7 @@ AlphabeticalPokedexOrder:
 	db GLIGAR
 	db GLOOM
 	db GOLBAT
+	db GOLD
 	db GOLDEEN
 	db GOLDUCK
 	db GOLEM
@@ -233,6 +234,7 @@ AlphabeticalPokedexOrder:
 	db TYROGUE
 	db UMBREON
 	db UNOWN
+	db UNOWNKING
 	db URSARING
 	db VAPOREON
 	db VENOMOTH

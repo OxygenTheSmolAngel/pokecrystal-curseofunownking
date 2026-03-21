@@ -1,83 +1,75 @@
-# 16-bit index expansion for Crystal
+# Pokémon Crystal - Curse of the Unown King (GSC Recreation) (Oxygen's Take)
 
-This repository is a modernized and rebased version of [AX6](https://github.com/aaaaaa123456789)'s work found at https://github.com/aaaaaa123456789/pokecrystal16.
-It includes additional features such as the new `expand-item-ID` branch and the `newbox`/`item-newbox` branches.
+> I picked up the package, wondering what was inside. When I opened it, I found a copy of Pokémon Crystal next to an small envelope inside. It contained a note asking me to follow a set of instructions. “Well, they did give it to me as a gift, so this is the least I could do for them” I thought to myself as I inserted the cartridge into my old GameBoy Advance SP, and booted it up…
 
-This repository contains a modified Pokémon Crystal game, updated to handle 16-bit indexes. The main goal of this
-project is to create a reusable system that ROM hacks can use to bring 16-bit indexes into their games.  
-It is *not* within scope to create a new game, or to add additional features beyond 16-bit indexes.
+This ROM Hack is a somewhat faithful recreation of the Curse of the Unown King creepypasta from the beginning to the end, with some creative liberties taken to make the experience a bit more fresh for those who've read the creepypasta before.
+The base game itself is left as is, with the new content put on top of it. So you can basically play this as if it was a normal copy of Crystal or go for the main content hidden from plain sight. The choice is yours!
 
-The `master` branch of this repository is intended to perform identically to the original Pokémon Crystal, with
-minimal changes to support further development on it. Other branches will implement more features on top of it; the
-intention is that the necessary changes can be readily seen by comparing said branches to `master` (or between each
-other). Therefore, these other branches will never be merged into `master`, even though they will always be directly
-descended from it (i.e., in Git terminology, a merge would be a fast-forward).
+## Features
+- Main content hidden in the game, but still accessible ***(Use the photos inside the provided ZIP file as a guide.)***
 
-Since this repository is intended to be used as a reference, the commit history is intentionally kept clean to make
-changes clearly visible. Therefore, modifications (such as bug fixes) will often be merged into whichever commit is
-more suitable for them, with the remainder of the commit tree rebased on top of the updated commit. **Please do not
-fork this repository to build a new game on top** (unless you intend to contribute to it), as the publicly-visible
-history will be repeatedly rewritten, making merges impossible. If you do want to contribute to the repository, let
-me know in advance so I can notify you of history rewrites.
+- Base game left intact with some modifications. The new stuff were added on top of it.
 
-For update notifications, discussions, bug reports, and feedback, join our Discord server: [Fellowship of the Roms (Public)](https://discord.gg/dvpf6wcqMn). 
-Once there, navigate to the `#reaction-roles` channel and react to pokecrystal16 to gain access to the `#pokecrystal16` channels.
+- Original creepypasta fully recreated with minor removals and some major changes.
 
-For further documentation, check out the [wiki].
+-It imitates an existing hacked save file, emphasizing the fact that the original owner of the save is a cheater (Many vanilla progression flags are set while others aren't.)
 
-## Branches
+- An optional bonus event *(Hint: Maybe go check out Celadon City?)*
 
-Last PC16 rebase: **2025-11-26**
+- You can now reset the in-game clock by interacting with the bed in your house (Uses the Initialize Clock script from the vanilla game's intro.)
 
-* `master`: (status: **stable**, last update: **2025-01-22**) Base branch. This branch contains a slightly modified
-  version of Pokémon Crystal, with some quality-of-life improvements intended to make development easier. These
-  improvements have been taken from the documentation in the [main disassembly repository][pokecrystal]. This branch
-  contains no 16-bit features and it is only intended as a reference.
-* `base-components`: (status: **stable**, last update: **2025-01-22**) This branch defines the basic components that
-  will comprise the 16-bit index table system, on top of which the remaining branches will be built. Since it only
-  defines macros (and a handful of WRAM locations to be shared by all index tables), it should build the same ROM as
-  `master`.
-* `expand-mon-ID`: (status: **stable**, last update: **2025-01-22**) This branch implements 16-bit indexes for Pokémon
-  species, thus allowing more than 253 species to be included in a single game.
-* `expand-move-ID`: (status: **stable**, last update: **2025-01-22**) This branch implements 16-bit indexes for moves,
-  on top of the existing 16-bit support for Pokémon species from the previous branch. (Interaction between the
-  branches is kept to a minimum, though.)
-* `newbox`: (status: **experimental**, last update: **2025-01-22**) This branch ports Rangi & FIQ's "newbox" from
-  Polished Crystal. Newbox is a complete overhaul to Bill's PC, and this branch ports the functionality on
-  top of the previous branches.
-* `expand-item-ID`: (status: **very experimental - use at on RISK!**, last update: **2025-01-22**) This branch implements 16-bit
-  indexes for items, on top of the existing 16-bit support for Pokémon moves from the `expand-move-ID` branch.
-* `item-newbox` : (status: **very experimental - use at on RISK!**, last update: **2025-01-22**) This branch is the same
-  as the `newbox` branch, but it builds on top of `expand-item-ID`.
-* `pokecrystal`: (status: **N/A**, last update **2025-11-26**) This branch contains pret's vanilla pokecrystal and
-  should only be used to compare with the previous branches to view pokecrystal16 changes. **DO NOT USE THIS BRANCH!**
+- Code is open-source, so you can use it in your ROM Hacks (with credit, of course.)
+ 
+- Will be updated over time to fix bugs and maybe add some new bonus content(?).
 
-To view the differences between any two branches (or any two commits in the repository), you can use GitHub's [tree
-comparison][compare] tool.
+## Bug Report
 
-## FAQs
+If there is something in the main content that needs fixing, DM me on Discord (Username: oxygen _the _smol _angel22 ) or make a post in the Pokecommunity thread about it, and I'll try to fix it as much as I can.
+Don't expect much if the bug involves ASM programming, though, because I'm still a newbie at it.
 
-**Q1:** Will this engine include \<insert additional feature here\>?  
-**A1:** Unless the feature is specifically related to 16-bit indexing (or otherwise extending the range of possible
-index values), the answer is almost certainly "no". This repository's scope is limited to 16-bit indexes. If you
-already have a ROM hack that includes the features you like and you'd want it to have 16-bit indexes, the right course
-of action would be to port this engine to it. Otherwise, you can use this engine as a base to make your own ROM hack
-with all the features you want.
+## Developer's Comments
 
-**Q2:** Can I use this engine for my own ROM hack?  
-**A2:** Of course; that's what it was made for. I will try make it as easy as possible to port to existing or new ROM
-hacks; instructions to do so will be in the [wiki]. All I can ask you for is that, just like this engine was openly
-available for you to use, you make your hack's code openly available as well — quoting some of the text in
-[SQLite](https://sqlite.org)'s copyright disclaimer, "may you share freely, never taking more than you give".
+While I'm very happy at how this passion project of mine came out, I will admit that some of the advanced code edits are not the most optimized. While it's not my first time making a Gen 2 ROM Hack, it is my first time making one with many complex edits that have befuddled me whenever I tried it without help.
+That doesn't mean I'm not proud of what I made. Quite the opposite, actually. The fact I was able to stay motivated to work on this for one whole month is something that I'm very proud of, even more knowing that the final product came out decently nice despite my skill.
+There are definitely improvements to be made. But as it is, I feel great to finally be able to share this project to everyone and my appreciation for my absolute favorite Pokémon creepypasta of all time.
 
-**Q3:** What's this engine's new limit on indexes?  
-**A3:** The theoretical limit is 65,534, minus a couple of "special" indexes used by the game for specific purposes
-(such as the value that indicates that a Pokémon is inside an egg). However, there are several limitations that will
-probably prevent you from ever reaching that limit. For starters, you can't fit 65,534 of _anything_ inside a ROM
-bank! The index work is done, and I'll try to remove any hurdles that would render that work useless; however, if you
-want to push the limits of the hardware and add 20,000 new Pokémon, you'll find yourself against a technical challenge
-that will go beyond indexes.
+## Patching Instructions
 
-[compare]: https://github.com/vulcandth/pokecrystal16/compare
-[pokecrystal]: https://github.com/pret/pokecrystal/
-[wiki]: https://github.com/vulcandth/pokecrystal16/wiki
+Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the process to patch a legal ROM of Pokémon Crystal is the same:
+
+- Ensure you have the ROM you want to patch (Pokémon Crystal [V1.0])
+
+- Use an xdelta patcher to apply the patch in the ZIP file to your base ROM. (Either an online patcher or [Delta Patcher](https://www.romhacking.net/utilities/704/) )
+
+- Save the patched ROM anywhere where you can easily find it, and you're done! Now you can play this hack on the emulator of your choice.
+
+## Credits
+
+(Pulled from the CREDITS option in the main menu.)
+
+- ROM Hack adapted from: [La Maldición del Rey Unown](https://7g06.blogspot.com/2012/08/unownking.html?m=1)
+
+- Original creepypasta written by: Dead Bart
+
+- Code edits, map edits, custom sprites, and dialogue by: Oxygen
+
+- Base used: [pokecrystal16](https://github.com/vulcandth/pokecrystal16)
+
+- Unown King adapted from: [ScorchVX](https://x.com/ScorchVx)
+
+- [Vs. Unown King](Link goes here) track arranged from: [FNF: Unown King's Curse - Liberation (Composed by Corn_Yumi)](https://youtu.be/Msv0RUMqo5Q?si=EA-iQ6WCm0AcavFS)
+
+### Special Thanks
+
+- nehochudrukuvati (For his revised english translation of the Unown King creepypasta that I used as reference.)
+
+- [pret Discord Server](https://discord.gg/5EaYWKkfJ) (For helping and guiding me whenever I needed help throughout development.)
+
+- Everyone who has given me support until now. Thank you so much!
+
+## Links
+
+- [Pokecommunity Thread](Link goes here)
+
+- [YouTube Teaser](Link goes here)
+

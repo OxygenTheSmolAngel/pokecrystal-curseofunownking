@@ -179,7 +179,6 @@ LavenderSpeechHouse_Blocks:
 LavenderNameRater_Blocks:
 Route12SuperRodHouse_Blocks:
 Route28SteelWingHouse_Blocks:
-CeladonMansionRoofHouse_Blocks:
 Route16FuchsiaSpeechHouse_Blocks:
 ManiasHouse_Blocks:
 CianwoodPharmacy_Blocks:
@@ -199,6 +198,9 @@ GuideGentsHouse_Blocks:
 CherrygroveEvolutionSpeechHouse_Blocks:
 Route30BerryHouse_Blocks:
 	INCBIN "maps/House1.blk"
+
+CeladonMansionRoofHouse_Blocks:
+	INCBIN "maps/CeladonMansionRoofHouse.blk"
 
 SafariZoneFuchsiaGateBeta_Blocks:
 Route19FuchsiaGate_Blocks:
@@ -994,6 +996,9 @@ DragonsDenB1F_Blocks:
 
 TohjoFalls_Blocks:
 	INCBIN "maps/TohjoFalls.blk"
+
+RuinsOfAlphUnownKingChamber_Blocks:
+	INCBIN "maps/RuinsOfAlphUnownKingChamber.blk"
 
 RuinsOfAlphHoOhItemRoom_Blocks:
 RuinsOfAlphKabutoItemRoom_Blocks:

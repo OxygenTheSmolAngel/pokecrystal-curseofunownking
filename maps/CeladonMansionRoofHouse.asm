@@ -1,118 +1,231 @@
 	object_const_def
-	const CELADONMANSIONROOFHOUSE_PHARMACIST
+	const CELADONMANSIONROOFHOUSE_SUPER_NERD
+	const CELADONMANSIONROOFHOUSE_POKE_BALL1
 
 CeladonMansionRoofHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-CeladonMansionRoofHousePharmacistScript:
+CeladonMansionRoofHouseOxygenScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM03_CURSE
-	iftrue .GotCurse
-	writetext CeladonMansionRoofHousePharmacistIntroText
+	showemote EMOTE_SHOCK, CELADONMANSIONROOFHOUSE_SUPER_NERD, 5
+	checkevent EVENT_TALKED_TO_OXYGEN
+	iftrue .OxygenTalked
+	writetext CeladonMansionRoofHouseOxygenIntroText
+	waitbutton
+	closetext
+	pause 20
+	opentext
+	writetext CeladonMansionRoofHouseOxygenDialogueText
 	promptbutton
-	checktime NITE
-	iftrue .Night
-	writetext CeladonMansionRoofHousePharmacistNotNightText
+	disappear CELADONMANSIONROOFHOUSE_POKE_BALL1
+	setevent EVENT_GOT_UNOWNKING
+	writetext ReceivedUnownKingText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke UNOWNKING, 80
+	writetext CeladonMansionRoofHouseOxygenGiftText
+	waitbutton
+	closetext
+	setevent EVENT_TALKED_TO_OXYGEN
+	end
+
+.OxygenTalked:
+	writetext CeladonMansionRoofHouseOxygenAfterText
 	waitbutton
 	closetext
 	end
 
-.Night:
-	writetext CeladonMansionRoofHousePharmacistStoryText
-	promptbutton
-	verbosegiveitem TM_CURSE
-	iffalse .NoRoom
-	setevent EVENT_GOT_TM03_CURSE
-.GotCurse:
-	writetext CeladonMansionRoofHousePharmacistCurseText
+UnownKingPokeBallScript:
+	showemote EMOTE_HEART, CELADONMANSIONROOFHOUSE_POKE_BALL1, 20
+	reanchormap
+	pokepic UNOWNKING
+	cry UNOWNKING
 	waitbutton
-.NoRoom:
+	closepokepic
+	opentext
+	writetext UnownKingPokeBallText
+	waitbutton
 	closetext
 	end
 
-CeladonMansionRoofHousePharmacistIntroText:
-	text "Let me recount a"
-	line "terrifying tale…"
+CeladonMansionRoofHousePC:
+	jumptext CeladonMansionRoofHousePCText
+
+CeladonMansionRoofHouseOxygenIntroText:
+	text "Awawa!?"
+
+	para "W-What are you"
+	line "doing here!?"
+
+	para "I swear I'm not"
+	line "writing a fanfic"
+	cont "where I'm kissing"
+	cont "the UNOWN KI-"
 	done
 
-CeladonMansionRoofHousePharmacistNotNightText:
-	text "Then again, it's"
-	line "not as scary while"
+CeladonMansionRoofHouseOxygenDialogueText:
+	text "Uhhhhhhhhh…"
 
-	para "it's still light"
-	line "outside."
+	para "E-Excuse my poor"
+	line "manners. I didn't"
+	cont "notice you there."
 
-	para "Come back after"
-	line "sunset, OK?"
+	para "My name is Oxygen!"
+	line "I am the developer"
+	cont "of the ROM Hack"
+	cont "you're playing."
+
+	para "I was just, uhh..."
+
+	para "I was just working"
+	line "on some new stuff,"
+	cont "that's all."
+
+	para "I hope you've"
+	line "enjoyed what I"
+	cont "worked on so far."
+
+	para "This was not easy"
+	line "to make at all."
+
+	para "But I really hope"
+	line "that my hard work"
+	cont "was worth it."
+
+	para "Now, I was going"
+	line "to go back to what"
+	cont "I'm working on."
+
+	para "But you know what?"
+	line "I'm feeling quite"
+	cont "generous today."
+
+	para "Think of it as a"
+	line "bonus reward for"
+	cont "straying from the"
+	cont "main path."
+	
+	para "I'll let you keep"
+	line "my UNOWN KING as"
+	cont "thanks for your"
+	cont "help and support."
+
+	para "It means a lot to"
+	line "be able to share"
+	cont "my passion project"
+	cont "to everyone."
+
+	para "Do note that his"
+	line "back sprite is"
+	cont "outdated."
+
+	para "He wasn't meant to"
+	line "be used outside of"
+	cont "his battle."
+
+	para "Buuuuut whatever."
+	line "I'm sure it's"
+	cont "fine."
+
+	para "Anyways, here you"
+	line "go!"
 	done
 
-CeladonMansionRoofHousePharmacistStoryText:
-	text "Once upon a time,"
-	line "there was a little"
+CeladonMansionRoofHouseOxygenGiftText:
+	text "Unki is such a big"
+	line "lovable darling."
+	cont "I love him with"
+	cont "all my heart."
 
-	para "boy who was given"
-	line "a new BICYCLE…"
+	para "I was able to tame"
+	line "him when I was the"
+	cont "one to free him."
 
-	para "He wanted to try"
-	line "it right away…"
+	para "Please take good"
+	line "care of him. And"
+	cont "feed him lots of"
+	cont "berries."
 
-	para "He was having so"
-	line "much fun that he"
+	para "But anyways, I'll"
+	line "go back to work on"
+	cont "my, uhhhh, work."
 
-	para "didn't notice the"
-	line "sun had set…"
-
-	para "While riding home"
-	line "in the pitch-black"
-
-	para "night, the bike"
-	line "suddenly slowed!"
-
-	para "The pedals became"
-	line "heavy!"
-
-	para "When he stopped"
-	line "pedaling, the bike"
-
-	para "began slipping"
-	line "backwards!"
-
-	para "It was as if the"
-	line "bike were cursed"
-
-	para "and trying to drag"
-	line "him into oblivion!"
-
-	para "…"
-
-	para "…"
-
-	para "SHRIEEEEK!"
-
-	para "The boy had been"
-	line "riding uphill on"
-	cont "CYCLING ROAD!"
-
-	para "…"
-	line "Ba-dum ba-dum!"
-
-	para "For listening so"
-	line "patiently, you may"
-	cont "take this--TM03!"
+	para "Bye bye! :3"
 	done
 
-CeladonMansionRoofHousePharmacistCurseText:
-	text "TM03 is CURSE."
+CeladonMansionRoofHouseOxygenAfterText:
+	text "Oh, uhh, hey!"
 
-	para "It's a terrifying"
-	line "move that slowly"
+	para "Sorry, I'm still"
+	line "busy."
 
-	para "whittles down the"
-	line "victim's HP."
+	para "…Unless you want"
+	line "to commission me"
+	cont "some art?"
+
+	para "You know, so I"
+	line "can get some"
+	cont "quick money."
+
+	para "Oh, you don't?"
+	line "That's alright."
+
+	para "Either way, I"
+	line "still have to"
+	cont "pack my stuff."
+
+	para "I will be"
+	line "returning to my"
+	cont "world after all."
 	done
+
+UnownKingPokeBallText:
+	text "It's the UNOWN"
+	line "KING inside of"
+	cont "a MASTER BALL."
+
+	para "He's staring"
+	line "at OXYGEN's"
+	cont "notebook."
+	done
+
+ReceivedUnownKingText:
+	text "<PLAYER> received"
+	line "the UNOWN KING!"
+	done
+
+CeladonMansionRoofHousePCText:
+	text "<PLAYER> checked"
+	line "out OXYGEN's PC."
+
+	para "It has a notepad"
+	line "open with code"
+	cont "written on an asm"
+	cont "file."
+
+	para "On another tab,"
+	line "this exact room"
+	cont "is being shown"
+	cont "on a map editor."
+
+	para "And lastly, a"
+	line "messaging app is"
+	cont "open on the third"
+	cont "tab."
+
+	para "It shows a chat"
+	line "between OXYGEN"
+	cont "and his partner."
+
+	para "<PLAYER> closed the"
+	line "tab as to not"
+	cont "invade OXYGEN's"
+	cont "privacy."
+	done
+
 
 CeladonMansionRoofHouse_MapEvents:
 	db 0, 0 ; filler
@@ -124,6 +237,8 @@ CeladonMansionRoofHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  0,  1, BGEVENT_READ, CeladonMansionRoofHousePC
 
 	def_object_events
-	object_event  3,  2, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHousePharmacistScript, -1
+	object_event  3,  5, SPRITE_MONSTER, SPRITEMOVEDATA_STANDING_UP, 0, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHouseOxygenScript, -1
+	object_event  4,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, UnownKingPokeBallScript, EVENT_GOT_UNOWNKING

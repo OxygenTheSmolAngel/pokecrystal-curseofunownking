@@ -37,4 +37,4 @@ DiglettsCave_MapEvents:
 	bg_event  6, 11, BGEVENT_ITEM, DiglettsCaveHiddenMaxRevive
 
 	def_object_events
-	object_event  3, 31, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DiglettsCavePokefanMScript, -1
+	object_event  3, 31, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DiglettsCavePokefanMScript, EVENT_UNOWNKING_AWAKENING

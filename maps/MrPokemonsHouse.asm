@@ -10,8 +10,13 @@ MrPokemonsHouse_MapScripts:
 	def_callbacks
 
 MrPokemonsHouseMeetMrPokemonScene:
+	checkevent EVENT_UNOWNKING_AWAKENING
+	iftrue .EventDeactivated
 	sdefer MrPokemonsHouseMrPokemonEventScript
 	end
+
+.EventDeactivated:
+    end
 
 MrPokemonsHouseNoopScene:
 	end
@@ -387,5 +392,5 @@ MrPokemonsHouse_MapEvents:
 	bg_event  6,  4, BGEVENT_READ, MrPokemonsHouse_StrangeCoins
 
 	def_object_events
-	object_event  3,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MrPokemonsHouse_MrPokemonScript, -1
+	object_event  3,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MrPokemonsHouse_MrPokemonScript, EVENT_UNOWNKING_AWAKENING
 	object_event  6,  5, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MR_POKEMONS_HOUSE_OAK

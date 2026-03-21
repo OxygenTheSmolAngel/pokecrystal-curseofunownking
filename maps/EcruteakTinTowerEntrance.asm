@@ -19,6 +19,8 @@ EcruteakTinTowerEntranceNoop2Scene:
 	end
 
 EcruteakTinTowerEntranceInitializeSagesCallback:
+	disappear ECRUTEAKTINTOWERENTRANCE_SAGE2
+	disappear ECRUTEAKTINTOWERENTRANCE_SAGE1
 	checkevent EVENT_FOUGHT_SUICUNE
 	iftrue .DontBlockTower
 	checkevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER

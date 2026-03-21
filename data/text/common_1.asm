@@ -154,22 +154,19 @@ _CardFolderOpenText::
 	text_end
 
 _OakTimeWokeUpText::
-	text "<……><……><……><……><……><……>"
-	line "<……><……><……><……><……><……>"
-
-	para "Zzz… Hm? Wha…?"
-	line "You woke me up!"
-
-	para "Will you check the"
-	line "clock for me?"
+	text "It's time to set"
+	line "up the alarm"
+	cont "clock."
 	prompt
 
 _OakTimeWhatTimeIsItText::
-	text "What time is it?"
+	text "First of all, "
+	line "set the time."
 	done
 
 _OakTimeWhatHoursText::
-	text "What?@"
+	text "Sleep until"
+	line "@"
 	text_end
 
 _OakTimeHoursQuestionMarkText::
@@ -181,7 +178,7 @@ _OakTimeHowManyMinutesText::
 	done
 
 _OakTimeWhoaMinutesText::
-	text "Whoa!@"
+	text "@"
 	text_end
 
 _OakTimeMinutesQuestionMarkText::
@@ -206,12 +203,20 @@ _OakTimeSoDarkText::
 	done
 
 _OakTimeWhatDayIsItText::
-	text "What day is it?"
+	text "On what day?"
 	done
 
 _OakTimeIsItText::
 	text ", is it?"
 	done
+
+_SleepingText::
+	text "After <PLAYER> set"
+	line "the alarm, it was"
+	cont "time to go to"
+
+	para "sleep..."
+	prompt
 
 ; Mobile Adapter
 
@@ -1102,6 +1107,13 @@ _BuenaOffTheAirText::
 	line ""
 	done
 
+;Silence
+
+_Silence_Text::
+	text "It was awfully"
+	line "quiet…"
+	done
+
 _EnemyWithdrewText::
 	text "<ENEMY>"
 	line "withdrew"
@@ -1876,3 +1888,20 @@ _PrestoAllDoneText::
 	text "Presto! All done."
 	line "Come again, OK?"
 	done
+
+_FinalSpeechText::
+    text "<PLAYER>… You did"
+    line "it!"
+
+    para "You just freed the"
+    line "BEAST and doomed"
+    cont "the human race!"
+
+    para "I couldn't have"
+    line "done it without"
+    cont "you."
+
+    para "Thank you."
+
+    para ""
+    done

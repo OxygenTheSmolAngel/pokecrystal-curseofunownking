@@ -65,6 +65,16 @@ PlayBattleMusic:
 	cp BATTLETYPE_ROAMING
 	jp z, .done
 
+	ld a, [wBattleType]
+	cp BATTLETYPE_UNOWNKING
+	ld de, MUSIC_UNOWNKING_BATTLE
+	jp z, .done
+
+	ld a, [wBattleType]
+	cp BATTLETYPE_CELEBI
+	ld de, MUSIC_SUICUNE_BATTLE
+	jp z, .done
+
 	; Are we fighting a trainer?
 	ld a, [wOtherTrainerClass]
 	and a

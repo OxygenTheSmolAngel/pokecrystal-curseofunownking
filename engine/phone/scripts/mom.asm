@@ -7,6 +7,8 @@ MomPhoneCalleeScript:
 	iftrue MomPhoneNoGymQuestScript
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue MomPhoneNoPokedexScript
+	checkevent EVENT_UNOWNKING_AWAKENING
+	iftrue MomPhoneEmergencyScript
 	sjump MomPhoneNoPokemonScript
 
 .started_quest
@@ -140,3 +142,20 @@ MomPhoneLectureScript:
 	yesorno
 	iftrue MomPhoneSaveMoneyScript
 	sjump MomPhoneWontSaveMoneyScript
+
+MomPhoneEmergencyScript:
+	setevent EVENT_TALKED_TO_MOM_AFTER_UNOWNKING_KILL
+	specialphonecall SPECIALCALL_NONE
+	farwritetext MomPhoneEmergencyText1
+	pause 10
+	cry UNOWNKING
+	farwritetext MomPhoneEmergencyText2
+	pause 5
+	playsound SFX_BITE
+    pause 16
+	playsound SFX_BITE
+	pause 16
+	playsound SFX_BITE
+	pause 16
+	playsound SFX_SUPER_EFFECTIVE 
+	end

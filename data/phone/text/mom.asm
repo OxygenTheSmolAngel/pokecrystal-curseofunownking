@@ -163,3 +163,24 @@ MomPhoneLectureText:
 	para "What about money?"
 	line "Should I save it?"
 	done
+
+MomPhoneEmergencyText1:
+	text "H-Hello?"
+
+	para "……<PLAYER>!? Thank"
+	line "goodness you're"
+	cont "alright."
+
+	para "I saw the news on"
+	line "the TV, and…"
+	done
+
+MomPhoneEmergencyText2:
+
+	text "Oh! Oh no no no "
+	line "no no NO!!"
+
+	para "Son, please!!"
+	line "Come home quickly"
+	cont "before he-"
+	done

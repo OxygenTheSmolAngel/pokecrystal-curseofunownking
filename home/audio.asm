@@ -426,10 +426,11 @@ SpecialMapMusic::
 	jr z, .surf
 	cp PLAYER_SURF_PIKA
 	jr z, .surf
-
 	ld a, [wStatusFlags2]
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
 	jr nz, .contest
+	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
+	jr nz, .cursed
 
 .no
 	and a
@@ -457,6 +458,11 @@ SpecialMapMusic::
 
 .ranking
 	ld de, MUSIC_BUG_CATCHING_CONTEST_RANKING
+	scf
+	ret
+
+.cursed
+	ld de, MUSIC_RUINS_OF_ALPH_RADIO
 	scf
 	ret
 

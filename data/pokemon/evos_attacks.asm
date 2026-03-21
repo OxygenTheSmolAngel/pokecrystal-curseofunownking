@@ -8,7 +8,7 @@ SECTION "Evolutions and Attacks", ROMX
 ;    * db EVOLVE_HAPPINESS, TR_* constant (ANYTIME, MORNDAY, NITE), species
 ;    * db EVOLVE_STAT, level, ATK_*_DEF constant (LT, GT, EQ), species
 ; - db 0 ; no more evolutions
-; - Learnset (in increasing level order):
+; - db (in increasing level order):
 ;    * db level, move
 ; - db 0 ; no more level-up moves
 
@@ -3354,4 +3354,28 @@ CelebiEvosAttacks:
 	db 30, FUTURE_SIGHT
 	db 40, BATON_PASS
 	db 50, PERISH_SONG
+	db 0 ; no more level-up moves
+
+UnownkingEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, BITE
+	db 1, LEER
+	db 6, CONFUSION
+	db 15, PROTECT
+	db 22, BELLY_DRUM
+	db 29, ANCIENTPOWER
+	db 36, SCARY_FACE
+	db 36, THRASH
+	db 40, SUBMISSION
+	db 43, BODY_SLAM
+	db 47, IRON_TAIL
+	db 50, CRUNCH
+	db 60, STOMP
+	db 75, GLARE
+	db 85, BERSERKCHOMP
+	db 0 ; no more level-up moves
+
+GoldEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, STRUGGLE
 	db 0 ; no more level-up moves

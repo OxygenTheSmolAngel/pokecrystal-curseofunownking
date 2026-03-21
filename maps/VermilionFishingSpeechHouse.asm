@@ -60,4 +60,4 @@ VermilionFishingSpeechHouse_MapEvents:
 	bg_event  3,  0, BGEVENT_READ, FishingDudesHousePhoto
 
 	def_object_events
-	object_event  2,  4, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FishingDude, -1
+	object_event  2,  4, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FishingDude, EVENT_UNOWNKING_AWAKENING

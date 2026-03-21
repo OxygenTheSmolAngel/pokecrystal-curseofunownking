@@ -89,6 +89,9 @@ SaveRTC:
 	ret
 
 StartClock::
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
+	jr nz, .disable_clock
 	call GetClock
 	call _FixDays
 	call FixDays
@@ -98,6 +101,9 @@ StartClock::
 .skip_set
 	call StartRTC
 	ret
+
+.disable_clock
+    ret
 
 _FixDays:
 	ld hl, hRTCDayHi

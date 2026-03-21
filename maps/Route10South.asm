@@ -32,6 +32,9 @@ TrainerPokefanmRobert:
 Route10Sign:
 	jumptext Route10SignText
 
+RoadblockRockScript13:
+    end
+
 HikerJimSeenText:
 	text "Hahahah!"
 	done
@@ -85,5 +88,6 @@ Route10South_MapEvents:
 	bg_event  5,  3, BGEVENT_READ, Route10Sign
 
 	def_object_events
-	object_event 17,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1
-	object_event  8, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmRobert, -1
+	object_event 17,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, EVENT_UNOWNKING_AWAKENING
+	object_event  8, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmRobert, EVENT_UNOWNKING_AWAKENING
+	object_event  8, 16, SPRITE_ROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RoadblockRockScript13, EVENT_UNOWNKING_ROADBLOCKS

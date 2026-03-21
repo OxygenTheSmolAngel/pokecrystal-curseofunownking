@@ -546,6 +546,17 @@ _WhitedOutText::
 	line "out!"
 	done
 
+_WhitedOutUnkiText::
+	text "As <PLAYER> slowly"
+	line "gets devoured by"
+	cont "the UNOWNKING, all"
+	cont "hope has been"
+	cont "lost."
+
+	para "And so… The world"
+	line "was left in ruin."
+	done
+
 _ItemfinderItemNearbyText::
 	text "Yes! ITEMFINDER"
 	line "indicates there's"
@@ -1126,6 +1137,15 @@ _PokecenterPCTurnOnText::
 	line "the PC."
 	prompt
 
+_PokecenterBrokenPCText::
+	text "<PLAYER> tried to"
+	line "turn on the PC."
+
+	para "…"
+
+	para "It was broken…"
+	prompt
+
 _PokecenterPCWhoseText::
 	text "Access whose PC?"
 	done
@@ -1549,3 +1569,89 @@ _OakText5::
 	para "That's why I study"
 	line "#MON every day."
 	prompt
+
+_CreditsText::
+	text "Pokémon: Curse of"
+	line "the Unown King GSC"
+	cont "Recreation"
+	cont "(Oxygen's Take)"
+	cont "Credits:"
+
+	para "ROM Hack adapted"
+	line "from:"
+	cont "La Maldicion del"
+	cont "Rey Unown"
+
+	para "Original creepy-"
+	line "pasta written by:"
+	cont "Dead Bart"
+
+	para "Code edits, map"
+	line "edits, and custom"
+	cont "sprites by: Oxygen"
+
+	para "Dialogue written"
+	line "by: Oxygen"
+
+	para "Base used:"
+	line "pokecrystal16"
+
+	para "Unown King design"
+	line "adapted from:"
+	cont "ScorchVX"
+
+	para "'Vs. Unown King'"
+	line "track arranged"
+	cont "from:"
+	cont "FNF: Unown King's"
+	cont "Curse - Liberation"
+	cont "(Composed by"
+	cont "Corn_Yumi)"
+
+	para "Special Thanks:"
+
+	para "nehochupechatat"
+	line "- For his revised"
+	cont "english trans-"
+	cont "lation of the"
+	cont "creepypasta that I"
+	cont "used as reference."
+
+	para "pret Discord" 
+	line "Server"
+	cont "- For helping and"
+	cont "guiding me with"
+	cont "the more advanced"
+	cont "code edits."
+
+	para "This project would"
+	line "not have made it"
+	cont "this far without"
+	cont "their help."
+
+	para "And lastly…"
+	line "Thanks to all of"
+	cont "the people who"
+	cont "supported me up"
+	cont "until now."
+
+	para "Despite my lack"
+	line "of ASM coding"
+	cont "knowledge, I am"
+	cont "very happy about"
+	cont "how this passion"
+	cont "project of mine"
+	cont "came out."
+
+	para "Thank you, all"
+	line "of you."
+
+	para "It means a lot"
+	line "to me."
+
+    prompt
+
+
+
+
+

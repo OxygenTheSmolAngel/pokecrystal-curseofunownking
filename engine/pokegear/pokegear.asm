@@ -1725,6 +1725,18 @@ NoRadioStation:
 	ldh [hBGMapMode], a
 	ret
 
+NoRadioStationAlt:
+	call NoRadioMusic
+	call NoRadioNameAlt
+; no radio channel
+	xor a
+	ld [wPokegearRadioChannelBank], a
+	ld [wPokegearRadioChannelAddr], a
+	ld [wPokegearRadioChannelAddr + 1], a
+	ld a, $1
+	ldh [hBGMapMode], a
+	ret
+
 NoRadioMusic:
 	ld de, MUSIC_NONE
 	call PlayMusic
@@ -1738,6 +1750,13 @@ NoRadioName:
 	hlcoord 1, 8
 	lb bc, 3, 18
 	call ClearBox
+	hlcoord 0, 12
+	lb bc, 4, 18
+	call Textbox
+	ret
+
+NoRadioNameAlt:
+	xor a
 	hlcoord 0, 12
 	lb bc, 4, 18
 	call Textbox

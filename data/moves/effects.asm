@@ -2077,3 +2077,27 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
+
+Berserk:
+	checkrampage
+	checkobedience
+	doturn
+	rampage
+	usedmovetext
+	checkhit
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	clearmissdamage
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	draintarget
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove

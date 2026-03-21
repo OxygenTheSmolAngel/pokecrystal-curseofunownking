@@ -83,6 +83,8 @@ PlayersHouseBookshelfScript:
 	jumpstd PictureBookshelfScript
 
 PlayersHousePCScript:
+	checkevent EVENT_UNOWNKING_AWAKENING
+	iftrue .BrokenPlayerPC
 	opentext
 	special PlayersHousePC
 	iftrue .Warp
@@ -91,6 +93,114 @@ PlayersHousePCScript:
 .Warp:
 	warp NONE, 0, 0
 	end
+.BrokenPlayerPC:
+    checkevent EVENT_BROKEN_PC
+    iftrue .PCAlreadyBroken
+    opentext
+    playsound SFX_BOOT_PC 
+    writetext PlayersPCTurnOnAltText
+    waitbutton
+    closetext
+	playsound SFX_SHUT_DOWN_PC
+    pause 10
+    opentext
+    playsound SFX_CHOOSE_PC_OPTION
+    writetext HasMonBehindMonitor
+    waitbutton
+    closetext
+    pause 5
+	getmonname STRING_BUFFER_3, STARYU
+	opentext
+	writetext ReceivedMonText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke STARYU, 20
+	closetext
+	pause 5
+	getmonname STRING_BUFFER_3, SANDSHREW
+	opentext
+	writetext ReceivedMonText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke SANDSHREW, 6
+	closetext
+	pause 10
+	opentext
+	writetext NothingElseToDoText
+	waitbutton
+	closetext
+	setevent EVENT_BROKEN_PC
+    end
+
+.PCAlreadyBroken:
+    opentext
+    writetext PCBrokenText
+    waitbutton
+    closetext
+    end
+
+BedtimeScript:
+    opentext
+    writetext PlayersBedText1
+	yesorno 
+	iffalse .BedDoNothing
+	closetext
+    pause 15
+    refreshscreen
+    refreshmap
+    callasm SlowFadeOut
+    applymovement PLAYER, HideObjectMovement
+    special ResetClockScript
+    special SetDayOfWeek
+    special FadeOutMusic
+    pause 20
+    playmusic MUSIC_HEAL
+    pause 60
+    pause 90
+    playsound SFX_CALL
+    waitsfx
+    pause 10
+    playsound SFX_CALL
+    waitsfx
+    pause 10
+    playsound SFX_CALL
+    waitsfx
+    pause 10
+    playsound SFX_CALL
+    waitsfx
+    pause 10
+    playsound SFX_CALL
+    waitsfx
+    pause 10
+    playsound SFX_CALL
+    pause 10
+    playsound SFX_ENTER_DOOR
+    pause 60
+    reloadmap
+    applymovement PLAYER, ShowObjectMovement
+    opentext
+    writetext PlayersBedText2
+    waitbutton
+    closetext
+    end
+
+.BedDoNothing
+    closetext
+    end
+
+ShowObjectMovement:
+	show_object
+	step_end
+
+HideObjectMovement:
+	hide_object
+	step_end
+
+SlowFadeOut:
+	call RotateFourPalettesLeft
+	ret
 
 PlayersRadioText1:
 	text "PROF.OAK'S #MON"
@@ -112,6 +222,61 @@ PlayersRadioText4:
 	line "#MON CHANNEL…"
 	done
 
+PlayersPCTurnOnAltText:
+	text "<PLAYER> tried to"
+	line "turn on the PC."
+
+	para "…"
+
+	para "It's broken…"
+	line "Huh…"
+	done
+
+
+HasMonBehindMonitor:
+    text "There seems to be"
+    line "two POKE BALLS"
+    cont "hiding behind the"
+    cont "monitor."
+
+    para "<PLAYER> took the"
+    line "#MON with him."
+    done
+
+ReceivedMonText:
+	text "<PLAYER> got"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+NothingElseToDoText:
+    text "………"
+
+    para "Looks like there"
+    line "is nothing else"
+    cont "to do here."
+    done
+
+PCBrokenText:
+    text "The PC is "
+    line "unusable."
+    done
+
+PlayersBedText1:
+	text "This bed looks"
+	line "very comfy."
+
+	para "Set up an alarm"
+	line "and go to sleep?"
+	done
+
+PlayersBedText2:
+	text "<PLAYER>'s party"
+	line "feels refreshed."
+	done
+
+
 PlayersHouse2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -125,6 +290,8 @@ PlayersHouse2F_MapEvents:
 	bg_event  3,  1, BGEVENT_READ, PlayersHouseRadioScript
 	bg_event  5,  1, BGEVENT_READ, PlayersHouseBookshelfScript
 	bg_event  6,  0, BGEVENT_IFSET, PlayersHousePosterScript
+	bg_event  0,  4, BGEVENT_READ, BedtimeScript
+	bg_event  0,  4, BGEVENT_READ, BedtimeScript
 
 	def_object_events
 	object_event  4,  2, SPRITE_CONSOLE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseGameConsoleScript, EVENT_PLAYERS_HOUSE_2F_CONSOLE

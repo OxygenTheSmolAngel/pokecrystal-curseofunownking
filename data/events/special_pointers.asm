@@ -69,6 +69,7 @@ SpecialsPointers::
 	add_special UpdateSprites ; bank 0
 	add_special UpdatePlayerSprite ; bank 0
 	add_special GameCornerPrizeMonCheckDex
+	add_special ShowPokedexEntry
 	add_special UnusedSetSeenMon ; unused
 	add_special WaitSFX ; bank 0
 	add_special PlayMapMusic ; bank 0
@@ -179,6 +180,22 @@ SpecialsPointers::
 	add_special AskRememberPassword
 	add_special LoadMapPalettes
 	add_special UnusedFindItemInPCOrBag
+
+; Exclusive to ROM Hack
+	add_special UnownRadioCheck
+;These 6 specials are the same but with different Pokemon species
+	add_special SacrificeMewScript
+	add_special SacrificeCelebiScript
+	add_special SacrificeHoohScript
+	add_special SacrificeLugiaScript
+	add_special SacrificeMewtwoScript
+	add_special SacrificeSuicuneScript
+;
+	add_special ResetClockScript
+	add_special SetCaughtMon
+	add_special SetSeenMon
+	add_special SetUncaughtMon
+	add_special SetUnseenMon
 
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag

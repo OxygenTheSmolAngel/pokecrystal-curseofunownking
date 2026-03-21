@@ -39,6 +39,17 @@ GameCornerPrizeMonCheckDex:
 	call ExitAllMenus
 	ret
 
+ShowPokedexEntry:
+       ld a, [wScriptVar]
+       dec a
+       call SetSeenMon
+       call FadeToMenu
+       ld a, [wScriptVar]
+       ld [wNamedObjectIndex], a
+       farcall NewPokedexEntry
+       call ExitAllMenus
+       ret
+
 UnusedSetSeenMon:
 	ld a, [wScriptVar]
 	dec a
@@ -371,6 +382,46 @@ SnorlaxAwake:
 	db 36,  9 ; right
 	db -1
 
+UnownRadioCheck:
+; check background music
+	ld a, [wMapMusic]
+	cp MUSIC_RUINS_OF_ALPH_RADIO
+	jr nz, .nope
+
+	ld a, [wXCoord]
+	ld b, a
+	ld a, [wYCoord]
+	ld c, a
+
+	ld hl, .ProximityCoords
+.loop
+	ld a, [hli]
+	cp -1
+	jr z, .nope
+	cp b
+	jr nz, .nextcoord
+	ld a, [hli]
+	cp c
+	jr nz, .loop
+
+	ld a, TRUE
+	jr .done
+
+.nextcoord
+	inc hl
+	jr .loop
+
+.nope
+	xor a
+.done
+	ld [wScriptVar], a
+	ret
+
+.ProximityCoords:
+	;   x,  y
+	db  2, 25 ; below
+	db -1
+
 PlayCurMonCry:
 	ld a, [wCurPartySpecies]
 	jp PlayMonCry
@@ -423,3 +474,128 @@ TrainerHouse:
 	ld a, [sMysteryGiftTrainerHouseFlag]
 	ld [wScriptVar], a
 	jp CloseSRAM
+
+
+SacrificeMewScript:
+	xor a
+	farcall SelectMonFromParty
+	jr c, SacrificeMewScript
+
+	ld a, [wCurPartySpecies]
+	cp MEW
+	jr nz, SacrificeMewScript
+
+	xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	callfar RemoveMonFromPartyOrBoxAlt
+	ret
+
+SacrificeCelebiScript:
+	xor a
+	farcall SelectMonFromParty
+	jr c, SacrificeCelebiScript
+
+	ld a, [wCurPartySpecies]
+	cp CELEBI
+	jr nz, SacrificeCelebiScript
+
+	xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	callfar RemoveMonFromPartyOrBoxAlt
+	ret
+
+SacrificeHoohScript:
+	xor a
+	farcall SelectMonFromParty
+	jr c, SacrificeHoohScript
+
+	ld a, [wCurPartySpecies]
+	cp HO_OH
+	jr nz, SacrificeHoohScript
+
+	xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	callfar RemoveMonFromPartyOrBoxAlt
+	ret
+
+SacrificeLugiaScript:
+	xor a
+	farcall SelectMonFromParty
+	jr c, SacrificeLugiaScript
+
+	ld a, [wCurPartySpecies]
+	cp LUGIA
+	jr nz, SacrificeLugiaScript
+
+	xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	callfar RemoveMonFromPartyOrBoxAlt
+	ret
+
+SacrificeMewtwoScript:
+	xor a
+	farcall SelectMonFromParty
+	jr c, SacrificeMewtwoScript
+
+	ld a, [wCurPartySpecies]
+	cp MEWTWO
+	jr nz, SacrificeMewtwoScript
+
+	xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	callfar RemoveMonFromPartyOrBoxAlt
+	ret
+
+SacrificeSuicuneScript:
+	xor a
+	farcall SelectMonFromParty
+	jr c, SacrificeSuicuneScript
+
+	ld a, [wCurPartySpecies]
+	cp SUICUNE
+	jr nz, SacrificeSuicuneScript
+
+	xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	callfar RemoveMonFromPartyOrBoxAlt
+	ret
+
+ResetClockScript:
+	farcall InitClock
+	ret
+
+SetCaughtMon:
+    ld a, [wScriptVar]
+    dec a
+    ld c, a
+    ld hl, wPokedexCaught
+    ld b, SET_FLAG
+    call PokedexFlagAction
+    ret
+
+SetSeenMon:
+    ld a, [wScriptVar]
+    dec a
+    ld c, a
+    ld hl, wPokedexSeen
+    ld b, SET_FLAG
+    call PokedexFlagAction
+    ret
+
+SetUnseenMon:
+    ld a, [wScriptVar]
+    dec a
+    ld c, a
+    ld hl, wPokedexSeen
+    ld b, RESET_FLAG
+    call PokedexFlagAction
+    ret
+
+SetUncaughtMon:
+    ld a, [wScriptVar]
+    dec a
+    ld c, a
+    ld hl, wPokedexCaught
+    ld b, RESET_FLAG
+    call PokedexFlagAction
+    ret

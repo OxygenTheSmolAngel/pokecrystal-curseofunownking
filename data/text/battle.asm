@@ -35,6 +35,14 @@ WildCelebiAppearedText:
 	line "appeared!"
 	prompt
 
+WildUnownKingAppearedText:
+	text "The @"
+	text_ram wEnemyMonNickname
+	text_start
+	line "stares at you"
+	cont "hungrily."
+	prompt
+
 WantsToBattleText::
 	text "<ENEMY>"
 	line "wants to battle!"
@@ -211,6 +219,12 @@ BattleText_MonFainted:
 	line "fainted!"
 	prompt
 
+BattleText_MonFaintedToUnki:
+	text_ram wBattleMonNickname
+	text_start
+	line "died."
+	prompt
+
 BattleText_UseNextMon:
 	text "Use next #MON?"
 	done
@@ -279,6 +293,11 @@ BattleText_UserFledUsingAStringBuffer1:
 
 BattleText_CantEscape:
 	text "Can't escape!"
+	prompt
+
+BattleText_CantEscapeUnki:
+	text "<PLAYER>'s body"
+	line "trembled in fear."
 	prompt
 
 BattleText_UserHurtBySpikes:
