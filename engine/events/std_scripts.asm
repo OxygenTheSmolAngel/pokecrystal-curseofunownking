@@ -528,6 +528,8 @@ InitializeEventsScript:
 	setevent EVENT_BEAT_BLAINE
 	setevent EVENT_BEAT_BLUE
 	setevent EVENT_BEAT_ELITE_FOUR
+    setevent EVENT_OPENED_MT_SILVER
+    setevent EVENT_FOUGHT_SNORLAX
 	setevent EVENT_FOUGHT_HO_OH
 	setflag ENGINE_KURT_MAKING_BALLS
 	setevent EVENT_RIVAL_AZALEA_TOWN

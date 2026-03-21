@@ -93,13 +93,6 @@ RuinsOfAlphUnownKingScript:
     clearevent EVENT_UNOWNKING_ROADBLOCKS
     setflag ENGINE_UNOWNKING_TRIGGER
 	special RestartMapMusic
-	takeitem ULTRA_BALL, 50
-	takeitem GREAT_BALL, 3
-	takeitem POKE_BALL, 10
-	takeitem POKE_BALL, 20
-	takeitem MASTER_BALL, 3
-	takeitem MASTER_BALL, 2
-	takeitem MASTER_BALL, 1
 	specialphonecall SPECIALCALL_EMERGENCY
 	reanchormap
 	opentext
