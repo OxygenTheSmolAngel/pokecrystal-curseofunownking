@@ -35,16 +35,41 @@ There are definitely improvements to be made. But as it is, I feel great to fina
 
 ## Patching Instructions
 
-Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the process to patch a legal ROM of Pokémon Crystal is the same.
+Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the process to patch a legal ROM of Pokémon Crystal is the same:
 
 - Ensure you have the ROM you want to patch (Pokémon Crystal [V1.0])
 
-- Use an xdelta patcher to apply the patch in the ZIP file to your base ROM. (Either an online patcher or Delta Patcher [ https://www.romhacking.net/utilities/704/ ])
+- Use an xdelta patcher to apply the patch in the ZIP file to your base ROM. (Either an online patcher or [Delta Patcher](https://www.romhacking.net/utilities/704/) )
+
+- Save the patched ROM anywhere where you can easily find it, and you're done! Now you can play this hack on the emulator of your choice.
 
 ## Credits
 
+(Pulled from the CREDITS option in the main menu.)
 
+- ROM Hack adapted from: [La Maldición del Rey Unown](https://7g06.blogspot.com/2012/08/unownking.html?m=1)
 
-[compare]: https://github.com/vulcandth/pokecrystal16/compare
-[pokecrystal]: https://github.com/pret/pokecrystal/
-[wiki]: https://github.com/vulcandth/pokecrystal16/wiki
+- Original creepypasta written by: Dead Bart
+
+- Code edits, map edits, custom sprites, and dialogue by: Oxygen
+
+- Base used: [pokecrystal16](https://github.com/vulcandth/pokecrystal16)
+
+- Unown King adapted from: [ScorchVX](https://x.com/ScorchVx)
+
+- [Vs. Unown King](Link goes here) track arranged from: [FNF: Unown King's Curse - Liberation (Composed by Corn_Yumi)](https://youtu.be/Msv0RUMqo5Q?si=EA-iQ6WCm0AcavFS)
+
+### Special Thanks
+
+- nehochudrukuvati (For his revised english translation of the Unown King creepypasta that I used as reference.)
+
+- [pret Discord Server](https://discord.gg/5EaYWKkfJ) (For helping and guiding me whenever I needed help throughout development.)
+
+- Everyone who has given me support until now. Thank you so much!
+
+## Links
+
+- [Pokecommunity Thread](Link goes here)
+
+- [YouTube Teaser](Link goes here)
+
