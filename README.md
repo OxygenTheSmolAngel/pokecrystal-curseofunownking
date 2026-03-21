@@ -51,7 +51,7 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 
 - Original creepypasta written by: Dead Bart
 
-- Code edits, map edits, custom sprites, and dialogue by: Oxygen
+- Code edits, map edits, custom sprites, and dialogue by: Oxygen (Me! :3 )
 
 - Base used: [pokecrystal16](https://github.com/vulcandth/pokecrystal16)
 
