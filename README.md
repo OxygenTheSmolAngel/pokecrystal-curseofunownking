@@ -24,7 +24,7 @@ The base game itself is left as is, with the new content put on top of it. So yo
 
 ## Bug Report
 
-If there is something in the main content that needs fixing, DM me on Discord (Username: oxygen _the _smol _angel22 ) or make a post in the Pokecommunity thread about it, and I'll try to fix it as much as I can.
+If there is something in the main content that needs fixing, DM me on Discord (Username: oxygen_the_smol_angel22 ) or make a post in the Pokecommunity thread about it, and I'll try to fix it as much as I can.
 Don't expect much if the bug involves ASM programming, though, because I'm still a newbie at it.
 
 ## Developer's Comments
