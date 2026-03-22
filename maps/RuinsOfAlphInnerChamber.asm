@@ -217,6 +217,9 @@ RuinsOfAlphInnerChamberLastStatue:
     writetext SacrificeSuccess
     waitbutton
     closetext
+	takeitem ESCAPE_ROPE
+	takeitem ESCAPE_ROPE, 1
+	takeitem ESCAPE_ROPE, 2
     special FadeOutToBlack
     applymovement PLAYER, HideObjectMovement2
     pause 120

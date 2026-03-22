@@ -90,6 +90,8 @@ RuinsOfAlphUnownKingScript:
     setevent EVENT_SLOWPOKE_WELL_ROCKETS
     setevent EVENT_RUINS_OF_ALPH_INNER_CHAMBER_TOURISTS
     setevent EVENT_PLAYERS_HOUSE_MOM_2
+    setevent EVENT_OPENED_MT_SILVER
+    setevent EVENT_FOUGHT_SNORLAX
     clearevent EVENT_UNOWNKING_ROADBLOCKS
     setflag ENGINE_UNOWNKING_TRIGGER
 	special RestartMapMusic

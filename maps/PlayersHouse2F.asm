@@ -104,7 +104,6 @@ PlayersHousePCScript:
 	playsound SFX_SHUT_DOWN_PC
     pause 10
     opentext
-    playsound SFX_CHOOSE_PC_OPTION
     writetext HasMonBehindMonitor
     waitbutton
     closetext
