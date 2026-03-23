@@ -1,6 +1,5 @@
 # Pokémon Crystal - Curse of the Unown King (GSC Recreation) (Oxygen's Take)
 
-<img width="512" height="512" alt="Untitled180_20260322202142" src="https://github.com/user-attachments/assets/df6c60e0-983f-45d3-b42b-22d8a9667d69" />
 
 
 > I picked up the package, wondering what was inside. When I opened it, I found a copy of Pokémon Crystal next to an small envelope inside. It contained a note asking me to follow a set of instructions. “Well, they did give it to me as a gift, so this is the least I could do for them” I thought to myself as I inserted the cartridge into my old GameBoy Advance SP, and booted it up…
