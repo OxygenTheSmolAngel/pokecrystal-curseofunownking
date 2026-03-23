@@ -63,7 +63,7 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 
 ### Special Thanks
 
-- nehochudrukuvati (For his revised english translation of the Unown King creepypasta that I used as reference.)
+- nehochudrukuvati (For his revised english translation of the Unown King creepypasta that I used as reference, and also for playtesting.)
 
 - [pret Discord Server](https://discord.gg/5EaYWKkfJ) (For helping and guiding me whenever I needed help throughout development.)
 

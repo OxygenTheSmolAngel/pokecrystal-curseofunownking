@@ -1617,6 +1617,9 @@ _CreditsText::
 	cont "creepypasta that I"
 	cont "used as reference."
 
+	para "He also playtested"
+	line "the hack once."
+
 	para "pret Discord" 
 	line "Server"
 	cont "- For helping and"
