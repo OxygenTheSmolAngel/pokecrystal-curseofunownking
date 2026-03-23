@@ -41,7 +41,7 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 
 - Ensure you have the ROM you want to patch (Pokémon Crystal [V1.0])
 
-- Use an xdelta patcher to apply the patch in the ZIP file to your base ROM. (Either an online patcher or [Delta Patcher](https://www.romhacking.net/utilities/704/) )
+- Use any ROM patcher to apply the patch in the ZIP file to your base ROM. (Either an online patcher or [FLIPS](https://www.romhacking.net/utilities/1040/) )
 
 - Save the patched ROM anywhere where you can easily find it, and you're done! Now you can play this hack on the emulator of your choice.
 
