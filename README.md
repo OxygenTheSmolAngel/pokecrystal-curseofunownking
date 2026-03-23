@@ -77,3 +77,13 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 - [YouTube Teaser](Link goes here)
 
 ## Screenshots
+
+<img width="1920" height="1080" alt="Screenshot_20260322-124920" src="https://github.com/user-attachments/assets/c486ab99-fe86-4e87-9ed8-a5caee306e97" />
+
+<img width="1920" height="1080" alt="Screenshot_20260322-125429" src="https://github.com/user-attachments/assets/aeed8d1c-c6a5-484f-871c-db7908242a27" />
+
+<img width="1920" height="1080" alt="Screenshot_20260322-130004" src="https://github.com/user-attachments/assets/195d848f-34c7-43af-8bb4-054ae21fdaf6" />
+
+<img width="1920" height="1080" alt="Screenshot_20260322-130131" src="https://github.com/user-attachments/assets/bb426183-52be-4406-825b-f55197df6d0c" />
+
+<img width="1920" height="1080" alt="Screenshot_20260322-130410" src="https://github.com/user-attachments/assets/056ced24-22ff-4914-ae25-8d9551ea8d02" />
