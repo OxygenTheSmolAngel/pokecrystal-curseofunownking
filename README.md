@@ -41,7 +41,6 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 
 - Ensure you have the ROM you want to patch (Pokémon Crystal [V1.0])
 
-- Use any ROM patcher to apply the patch in the ZIP file to your base ROM. (Either an online patcher or [FLIPS](https://www.romhacking.net/utilities/1040/) )
 
 - Save the patched ROM anywhere where you can easily find it, and you're done! Now you can play this hack on the emulator of your choice.
 
@@ -56,10 +55,10 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 - Code edits, map edits, custom sprites, and dialogue by: Oxygen (Me! :3 )
 
 - Base used: [pokecrystal16](https://github.com/vulcandth/pokecrystal16)
-
+    
 - Unown King adapted from: [ScorchVX](https://x.com/ScorchVx)
 
-- [Vs. Unown King](Link goes here) track arranged from: [FNF: Unown King's Curse - Liberation (Composed by Corn_Yumi)](https://youtu.be/Msv0RUMqo5Q?si=EA-iQ6WCm0AcavFS)
+- [Vs. Unown King](https://youtu.be/5Mm3nl1tEQU?si=cG9UYpDgEFhE_JU6) track arranged from: [FNF: Unown King's Curse - Liberation (Composed by Corn_Yumi)](https://youtu.be/Msv0RUMqo5Q?si=EA-iQ6WCm0AcavFS)
 
 ### Special Thanks
 
@@ -71,9 +70,9 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 
 ## Links
 
-- [Pokecommunity Thread](Link goes here)
+- [Pokecommunity Thread](https://www.pokecommunity.com/threads/pok%C3%A9mon-crystal-curse-of-the-unown-king-gsc-recreation-oxygens-take.541582/)
 
-- [YouTube Teaser](Link goes here)
+- [YouTube Teaser](https://youtu.be/2PbUR7oASpo)
 
 ## Screenshots
 
