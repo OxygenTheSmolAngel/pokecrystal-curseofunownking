@@ -56,7 +56,7 @@ Whether you get the ZIP file from the GitHub or the Pokecommunity thread, the pr
 
 - Base used: [pokecrystal16](https://github.com/vulcandth/pokecrystal16)
     
-- Unown King adapted from: [ScorchVX](https://x.com/ScorchVx)
+- Unown King design adapted from: [ScorchVX](https://x.com/ScorchVx)
 
 - [Vs. Unown King](https://youtu.be/5Mm3nl1tEQU?si=cG9UYpDgEFhE_JU6) track arranged from: [FNF: Unown King's Curse - Liberation (Composed by Corn_Yumi)](https://youtu.be/Msv0RUMqo5Q?si=EA-iQ6WCm0AcavFS)
 
