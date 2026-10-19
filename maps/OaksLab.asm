@@ -85,6 +85,14 @@ OaksLabPC:
 UnownKingEncounterScript:
     special FadeOutMusic
     pause 20
+	opentext
+	writetext UnkiDialogue
+.MustSayYes:
+	yesorno
+	iftrue .StartBattle
+	sjump .MustSayYes
+
+.StartBattle:
     opentext
   	earthquake 20
    	writetext UnkiCry2
@@ -277,6 +285,16 @@ OaksLabPCText:
 
 UnkiCry2:
     text "King! Unkiing!"
+	done
+	
+UnkiDialogue:
+	
+	text "The Unown King"
+	line "stares down at"
+	cont "you with his"
+	cont "large eye."
+	
+	para "Battle him?"
     done
 
 

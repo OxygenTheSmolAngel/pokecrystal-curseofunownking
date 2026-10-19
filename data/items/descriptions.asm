@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw QuestionMarkDesc
+	dw PuzzleTileADesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -45,7 +45,7 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw QuestionMarkDesc
+	dw PuzzleTileBDesc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
@@ -915,3 +915,11 @@ MusicMailDesc:
 MirageMailDesc:
 	db   "MEW-print MAIL."
 	next "(HOLD)@"
+
+PuzzleTileADesc:
+	db   "A tile for a"
+	next "puzzle.@"
+	
+PuzzleTileBDesc:
+	db   "Another tile"
+	next "for a puzzle.@"

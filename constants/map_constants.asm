@@ -155,6 +155,8 @@ ENDM
 	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
 	map_const VICTORY_ROAD,                                10, 36 ; 91
 	map_const RUINS_OF_ALPH_UNOWNKING_CHAMBER,             10, 20 ; 92
+	map_const RUINS_OF_ALPH_UNOWNKING_WORD_ROOM1,          10,  7 ; 93
+	map_const RUINS_OF_ALPH_UNOWNKING_WORD_ROOM2,          10,  7 ; 94
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

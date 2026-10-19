@@ -1017,6 +1017,12 @@ RuinsOfAlphOmanyteWordRoom_Blocks:
 
 RuinsOfAlphAerodactylWordRoom_Blocks:
 	INCBIN "maps/RuinsOfAlphAerodactylWordRoom.blk"
+	
+RuinsOfAlphUnownKingWordRoom1_Blocks:
+	INCBIN "maps/RuinsOfAlphUnownKingWordRoom1.blk"
+
+RuinsOfAlphUnownKingWordRoom2_Blocks:
+	INCBIN "maps/RuinsOfAlphUnownKingWordRoom1.blk"
 
 DragonShrine_Blocks:
 	INCBIN "maps/DragonShrine.blk"

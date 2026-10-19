@@ -9,6 +9,8 @@ RuinsOfAlphUnownKingChamber_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, RuinsOfAlphUnownKingChamberFinalSealCallback
+	callback MAPCALLBACK_TILES, RuinsOfAlphUnownKingChamberHole1Callback
+	callback MAPCALLBACK_TILES, RuinsOfAlphUnownKingChamberHole2Callback
 
 RuinsOfAlphUnownKingChamberFinalSealCallback:
 	checkevent EVENT_SOLVED_UNOWNKING_PUZZLE
@@ -18,11 +20,66 @@ RuinsOfAlphUnownKingChamberFinalSealCallback:
 	changeblock 10, 16, $3d ; right statue
 	changeblock 10, 17, $3d ; right statue2
 	endcallback
-
+	
 .SealOpen:
 	endcallback
 
+RuinsOfAlphUnownKingChamberHole1Callback:
+	checkevent EVENT_TILEPIECE1
+	iftrue .HoleClosed
+	changeblock  5, 17, $34 ; left hole
+	changeblock  6, 17, $35 ; left hole2
+	endcallback
+	
+.HoleClosed:
+	endcallback
+
+RuinsOfAlphUnownKingChamberHole2Callback:
+	checkevent EVENT_TILEPIECE2
+	iftrue .HoleClosed2
+	changeblock  13, 17, $34 ; right hole
+	changeblock  14, 17, $35 ; right hole2
+	endcallback
+
+.HoleClosed2:
+	endcallback
+
 RuinsOfAlphUnownKingChamberPuzzle:
+	checkevent EVENT_TILEPIECE1
+	iftrue .NextTileCheck
+	opentext
+	writetext RuinsOfAlphUnownKingChamberMissingTilesText
+	waitbutton
+	closetext
+	changeblock  5, 17, $34 ; left hole
+	changeblock  6, 17, $35 ; left hole2
+	refreshmap
+	pause 5
+	end
+	
+.NextTileCheck
+	checkevent EVENT_TILEPIECE2
+	iftrue .TileCheckComplete
+	opentext
+	writetext RuinsOfAlphUnownKingChamberMissingTilesText
+	waitbutton
+	closetext
+	changeblock  13, 17, $34 ; right hole
+	changeblock  14, 17, $35 ; right hole2
+	refreshmap
+	end
+	
+.TileCheckComplete
+	checkevent EVENT_PUZZLEREADY
+	iftrue .PuzzleReady
+	opentext
+	writetext RuinsOfAlphUnownKingChamberMissingTilesAltText
+	waitbutton
+	closetext
+	setevent EVENT_PUZZLEREADY
+	end
+
+.PuzzleReady
 	checkevent EVENT_SOLVED_UNOWNKING_PUZZLE
 	iftrue .PuzzleAlreadyComplete
 	reanchormap
@@ -147,16 +204,37 @@ RuinsOfAlphUnownKingChamberDescriptionText:
 	line "break the seal!"
 	done
 
+RuinsOfAlphUnownKingChamberMissingTilesText:
+	text "It's a tile puzzle."
+
+	para "There seems to be"
+	line "two missing tiles…"
+	done
+
+RuinsOfAlphUnownKingChamberMissingTilesAltText:
+	text "It's a tile puzzle."
+
+	para "There seems to be"
+	line "two missing tiles…"
+	
+	para "SUSEJ places the"
+	line "tiles on the"
+	cont "puzzle."
+	
+	para "Now the puzzle"
+	line "can be solved."
+	done
+
 BrokenSealText:
 	text "The seal has been"
 	line "broken."
 
-	para "You tried to"
-	line "decipher the text"
-	cont "on the panel."
+	para "Suddenly, ancient"
+	line "text appeared on"
+	cont "the panel."
 
-	para "…But the text was"
-	line "hard to read."
+	para "You tried to read"
+	line "it..."
 	done
 
 AlreadyBrokenSealText:
@@ -172,6 +250,10 @@ RuinsOfAlphUnownKingChamber_MapEvents:
 	warp_event  9, 39, RUINS_OF_ALPH_INNER_CHAMBER, 11
 	warp_event 10, 39, RUINS_OF_ALPH_INNER_CHAMBER, 12
 	warp_event 11, 39, RUINS_OF_ALPH_INNER_CHAMBER, 13
+	warp_event  5, 17, RUINS_OF_ALPH_UNOWNKING_WORD_ROOM1, 1
+	warp_event  6, 17, RUINS_OF_ALPH_UNOWNKING_WORD_ROOM1, 2
+	warp_event 13, 17, RUINS_OF_ALPH_UNOWNKING_WORD_ROOM2, 1
+	warp_event 14, 17, RUINS_OF_ALPH_UNOWNKING_WORD_ROOM2, 2
 
 
 	def_coord_events
