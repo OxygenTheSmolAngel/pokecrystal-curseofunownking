@@ -104,6 +104,17 @@ RuinsOfAlphUnownKingChamberPuzzle:
     writetext BrokenSealText
     waitbutton
     closetext
+	pause 15
+	opentext
+	writetext PanelText
+	waitbutton
+	closetext
+	special FadeOutMusic
+	pause 30
+	opentext
+	writetext FinalPanelText
+	waitbutton
+	closetext
     end
 
 .PuzzleAlreadyComplete
@@ -235,6 +246,46 @@ BrokenSealText:
 
 	para "You tried to read"
 	line "it..."
+	done
+
+PanelText:
+	text "After the great"
+	line "calamity, he was"
+	cont "sealed away in the"
+	cont "Ruins of Alph..."
+
+	para "...Never to be"
+	line "seen again for"
+	cont "many, many years."
+
+	para "And so, he"
+	line "slumbered for"
+	cont "millions of"
+	cont "years."
+	
+	para "All while the"
+	line "world moved on"
+	cont "without him."
+	
+	para "It was an unfair"
+	line "punishment for a"
+	cont "neglected deity."
+	
+	para "But soon..."
+	line "When he rises"
+	cont "from his rest."
+	
+	para "When he is set"
+	line "free from his"
+	cont "prison..."
+	done
+
+FinalPanelText:
+	text "He will devour"
+	line "everything."
+	
+	para "Until there is"
+	line "nothing left."
 	done
 
 AlreadyBrokenSealText:

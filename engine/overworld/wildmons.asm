@@ -181,6 +181,9 @@ TryWildEncounter::
 	jr nz, .no_battle
 	call CheckRepelEffect
 	jr nc, .no_battle
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
+	jr nz, .no_battle
 	xor a
 	ret
 

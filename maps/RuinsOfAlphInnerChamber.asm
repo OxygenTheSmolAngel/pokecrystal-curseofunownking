@@ -338,10 +338,9 @@ SacrificeSuicune:
 
 SacrificeSuccess:
     text "With the sacrifice"
-    line "of your team, the"
-    cont "UNOWN KING is now"
-    cont "even closer to"
-    cont "liberation."
+    line "of your team, a"
+    cont "new path has"
+    cont "opened."
     done
 
 RuinsOfAlphInnerChamber_MapEvents:
