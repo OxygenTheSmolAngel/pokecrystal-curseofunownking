@@ -3,6 +3,7 @@
 	const OAKSLAB_SCIENTIST1
 	const OAKSLAB_SCIENTIST2
 	const OAKSLAB_SCIENTIST3
+	const OAKSLAB_UNOWNKING
 
 OaksLab_MapScripts:
 	def_scene_scripts
@@ -103,6 +104,23 @@ UnownKingEncounterScript:
 	loadwildmon UNOWNKING, 100
 	startbattle
 	reloadmapafterbattle
+	opentext
+	cry UNOWNKING
+   	writetext UnkiSecretTalk
+	waitbutton
+	closetext
+	special FadeOutToBlack 
+	pause 5
+	special ReloadSpritesNoPalettes
+	disappear OAKSLAB_UNOWNKING
+	setevent EVENT_UNOWNKING_ROADBLOCKS
+	playsound SFX_RUN
+    pause 15
+	special FadeInFromBlack
+	pause 30
+	special HealParty
+	reanchormap
+	credits
 	end
 
 
@@ -297,7 +315,36 @@ UnkiDialogue:
 	para "Battle him?"
     done
 
-
+UnkiSecretTalk:
+    text "Unkiiing..."
+	
+	para "...O-Oww."
+	line "Dude, what the"
+	cont "hell??"
+	
+	para "I was supposed"
+	line "to be impossible"
+	cont "to beat!"
+	
+	para "..."
+	
+	para "Ughhhh..."
+	line "You know what?"
+	
+	para "I'm going back"
+	line "to my chamber."
+	
+	para "My work here is"
+	line "already done,"
+	cont "and I've lost"
+	cont "motivation to."
+	cont "continue killing."
+	
+	para "Enjoy living in"
+	line "an empty region,"
+	cont "you fool."
+	done
+	
 OaksLab_MapEvents:
 	db 0, 0 ; filler
 

@@ -108,6 +108,7 @@ Credits::
 	ldh [hVBlank], a
 	pop af
 	ldh [rWBK], a
+	farcall EmptyAllSRAMBanks
 	ret
 
 Credits_HandleAButton:

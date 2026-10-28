@@ -108,11 +108,9 @@ RuinsOfAlphUnownKingChamberPuzzle:
 	opentext
 	writetext PanelText
 	waitbutton
-	closetext
 	special FadeOutMusic
 	pause 30
-	opentext
-	writetext FinalPanelText
+	writetext FinalPanelSilentText
 	waitbutton
 	closetext
     end
@@ -280,7 +278,7 @@ PanelText:
 	cont "prison..."
 	done
 
-FinalPanelText:
+FinalPanelSilentText:
 	text "He will devour"
 	line "everything."
 	
