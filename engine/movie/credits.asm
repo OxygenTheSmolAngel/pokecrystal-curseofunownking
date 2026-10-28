@@ -108,8 +108,25 @@ Credits::
 	ldh [hVBlank], a
 	pop af
 	ldh [rWBK], a
-	farcall EmptyAllSRAMBanks
+	call CreditsEmptyAllSRAMBanks
 	ret
+
+CreditsEmptyAllSRAMBanks:
+for x, NUM_SRAM_BANKS
+	ld a, x
+	call .CreditsEmptyBank
+endr
+	ret
+
+.CreditsEmptyBank:
+	call OpenSRAM
+	ld hl, STARTOF(SRAM)
+	ld bc, SIZEOF(SRAM)
+	xor a
+	call ByteFill
+	call CloseSRAM
+	ret
+
 
 Credits_HandleAButton:
 	ldh a, [hJoypadDown]

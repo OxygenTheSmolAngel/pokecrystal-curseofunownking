@@ -120,8 +120,26 @@ UnownKingEncounterScript:
 	pause 30
 	special HealParty
 	reanchormap
-	credits
-	end
+	pause 30
+	callasm .DeleteSaveSecret
+	pause 10
+
+
+.DeleteSaveSecret:
+	for x, NUM_SRAM_BANKS
+	ld a, x
+	call .EmptyBankSecret
+endr
+	ret
+
+.EmptyBankSecret:
+	call OpenSRAM
+	ld hl, STARTOF(SRAM)
+	ld bc, SIZEOF(SRAM)
+	xor a
+	call ByteFill
+	call CloseSRAM
+	ret
 
 
 OakWelcomeKantoText:
