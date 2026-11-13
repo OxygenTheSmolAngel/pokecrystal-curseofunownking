@@ -183,6 +183,7 @@ SpecialsPointers::
 
 ; Exclusive to ROM Hack
 	add_special UnownRadioCheck
+	add_special CheckDiplomaPokedex
 ;These 6 specials are the same but with different Pokemon species
 	add_special SacrificeMewScript
 	add_special SacrificeCelebiScript

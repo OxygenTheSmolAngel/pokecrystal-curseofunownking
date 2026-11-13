@@ -599,3 +599,38 @@ SetUncaughtMon:
     ld b, RESET_FLAG
     call PokedexFlagAction
     ret
+
+CheckDiplomaPokedex:
+    ld b, 1 ; species IDs start at 1
+.loop
+    ld a, b
+    cp MEW
+    jr z, .next
+    cp CELEBI
+    jr z, .next
+    cp UNOWNKING
+    jr z, .next
+    cp GOLD
+    jr z, .next
+
+    push bc
+    ld a, b
+    dec a ; CheckCaughtMon uses a zero-based flag index
+    call CheckCaughtMon
+    pop bc
+    jr z, .incomplete
+
+.next
+    inc b
+    ld a, b
+    cp NUM_POKEMON + 1
+    jr c, .loop
+
+    ld a, TRUE
+    jr .done
+
+.incomplete
+    xor a
+.done
+    ld [wScriptVar], a
+    ret

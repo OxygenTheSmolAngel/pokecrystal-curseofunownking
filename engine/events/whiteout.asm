@@ -25,7 +25,6 @@ Script_Whiteout:
 	pause 120
 	callasm DeleteSave
 	special Reset
-	endall
 
 .NormalBattle:
 	writetext .WhitedOutText
@@ -82,10 +81,6 @@ LoadTrainerPicScript:
 
 SlowFadeOut:
 	call RotateFourPalettesLeft
-	ret
-
-SlowFadeIn:
-	call RotateFourPalettesRight
 	ret
 
 FadeOutWhite:

@@ -65,7 +65,7 @@ FoundCollectedTile2Text:
 	done
 
 TileNoRoom2:
-	text "Your PACK is full."
+	text "..."
 	done
 
 

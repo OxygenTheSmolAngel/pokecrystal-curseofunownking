@@ -13,9 +13,8 @@ GameFreakGameDesignerScript:
 	faceplayer
 	opentext
 	writetext GameFreakGameDesignerText
-	readvar VAR_DEXCAUGHT
-	ifgreater NUM_POKEMON - 4 - 3 - 2 - 1, .CompletedPokedex ; ignore Mew, Celebi, Unown King and Gold
-	waitbutton
+    special CheckDiplomaPokedex
+    iftrue .CompletedPokedex
 	closetext
 	end
 

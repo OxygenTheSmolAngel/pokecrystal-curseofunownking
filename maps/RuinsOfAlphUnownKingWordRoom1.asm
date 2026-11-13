@@ -29,8 +29,8 @@ RuinsOfAlphUnownKingWordRoom1Tile:
 FoundCollectedTileText:
 	text "Long ago, there"
 	line "were four gods"
-	cont "that were known"
-	cont "for years."
+	cont "that created the"
+	cont "world we live in."
 
 	para "Three of those"
 	line "gods helped form"
@@ -40,12 +40,11 @@ FoundCollectedTileText:
 	line "being Time, Space,"
 	cont "and Antimatter."
 	
-	para "Alongside their"
-	line "creator, they"
-	cont "were able to"
-	cont "form this world"
-	cont "we know and love."
-	
+    para "And then there's"
+    line "their creator, the"
+	cont "one who made"
+	cont "everything."
+
 	para "However, there"
 	line "was one god that"
 	cont "was forgotten."
@@ -70,7 +69,7 @@ FoundCollectedTileText:
 	done
 
 TileNoRoom1:
-	text "Your PACK is full."
+	text "..."
 	done
 
 RuinsOfAlphUnownKingWordRoom1_MapEvents:
