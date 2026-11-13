@@ -1,5 +1,5 @@
 	db "HUNGRYKING@" ; species name
-	dw 607, 2210 ; height, weight
+	dw 700, 2210 ; height, weight
 
 	db   "This fierce beast"
 	next "can slumber for"

@@ -18,9 +18,9 @@ CorrectPartyErrors: ; unreferenced
 	and a
 	jr z, .invalid_species
 	cp NUM_POKEMON + 1
-	jr z, .invalid_species
-	cp EGG + 1
 	jr c, .next_species
+	cp EGG
+	jr z, .next_species
 
 .invalid_species
 	ld [hl], SMEARGLE
