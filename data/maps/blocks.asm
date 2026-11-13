@@ -1022,7 +1022,7 @@ RuinsOfAlphUnownKingWordRoom1_Blocks:
 	INCBIN "maps/RuinsOfAlphUnownKingWordRoom1.blk"
 
 RuinsOfAlphUnownKingWordRoom2_Blocks:
-	INCBIN "maps/RuinsOfAlphUnownKingWordRoom1.blk"
+	INCBIN "maps/RuinsOfAlphUnownKingWordRoom2.blk"
 
 DragonShrine_Blocks:
 	INCBIN "maps/DragonShrine.blk"

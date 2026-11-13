@@ -156,8 +156,7 @@ BedtimeScript:
     special FadeOutMusic
     pause 20
     playmusic MUSIC_HEAL
-    pause 60
-    pause 90
+    pause 150
     playsound SFX_CALL
     waitsfx
     pause 10
@@ -289,7 +288,6 @@ PlayersHouse2F_MapEvents:
 	bg_event  3,  1, BGEVENT_READ, PlayersHouseRadioScript
 	bg_event  5,  1, BGEVENT_READ, PlayersHouseBookshelfScript
 	bg_event  6,  0, BGEVENT_IFSET, PlayersHousePosterScript
-	bg_event  0,  4, BGEVENT_READ, BedtimeScript
 	bg_event  0,  4, BGEVENT_READ, BedtimeScript
 
 	def_object_events

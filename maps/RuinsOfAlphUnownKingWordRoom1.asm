@@ -12,11 +12,18 @@ RuinsOfAlphUnownKingWordRoom1Tile:
 	waitbutton
 	closetext
 	pause 10
-	setevent EVENT_TILEPIECE1
 	refreshmap
 	verbosegiveitem PUZZLETILE_A
+	iffalse .NoRoom1
+	setevent EVENT_TILEPIECE1
 	pause 15
 	warp RUINS_OF_ALPH_UNOWNKING_CHAMBER, 9, 25
+	end
+
+.NoRoom1:
+	writetext TileNoRoom1
+	waitbutton
+	closetext
 	end
 
 FoundCollectedTileText:
@@ -60,6 +67,10 @@ FoundCollectedTileText:
 	line "rumor amongst"
 	cont "the residents"
 	cont "of Johto."
+	done
+
+TileNoRoom1:
+	text "Your PACK is full."
 	done
 
 RuinsOfAlphUnownKingWordRoom1_MapEvents:

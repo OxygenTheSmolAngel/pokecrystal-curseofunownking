@@ -349,12 +349,14 @@ UnkiSecretTalk:
 	para "Ughhhh..."
 	line "You know what?"
 	
-	para "I'm going back"
-	line "to my chamber."
+	para "Screw this, I'm"
+	line "going back to"
+	line "my chamber."
 	
 	para "My work here is"
-	line "already done,"
-	cont "and I've lost"
+	line "already done."
+	
+	para "Plus, I've lost"
 	cont "motivation to."
 	cont "continue killing."
 	

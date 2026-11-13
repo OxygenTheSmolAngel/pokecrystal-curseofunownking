@@ -20,8 +20,9 @@ CeladonMansionRoofHouseOxygenScript:
 	opentext
 	writetext CeladonMansionRoofHouseOxygenDialogueText
 	promptbutton
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFullGift
 	disappear CELADONMANSIONROOFHOUSE_POKE_BALL1
-	setevent EVENT_GOT_UNOWNKING
 	writetext ReceivedUnownKingText
 	playsound SFX_CAUGHT_MON
 	waitsfx
@@ -29,7 +30,15 @@ CeladonMansionRoofHouseOxygenScript:
 	writetext CeladonMansionRoofHouseOxygenGiftText
 	waitbutton
 	closetext
+	setevent EVENT_GOT_UNOWNKING
 	setevent EVENT_TALKED_TO_OXYGEN
+	end
+
+.PartyFullGift:
+	opentext
+	writetext PartyFullGiftText
+	waitbutton
+	closetext
 	end
 
 .OxygenTalked:
@@ -57,21 +66,17 @@ CeladonMansionRoofHousePC:
 CeladonMansionRoofHouseOxygenIntroText:
 	text "Awawa!?"
 
-	para "W-What are you"
-	line "doing here!?"
+	para "O-Oh hey!"
+	line "Sorry, you"
+	cont "startled me."
 
-	para "I swear I'm not"
-	line "writing a fanfic"
-	cont "where I'm kissing"
-	cont "the UNOWN KI-"
+	para "I wasn't"
+	line "expecting any"
+	cont "visitors."
 	done
 
 CeladonMansionRoofHouseOxygenDialogueText:
 	text "Uhhhhhhhhh…"
-
-	para "E-Excuse my poor"
-	line "manners. I didn't"
-	cont "notice you there."
 
 	para "My name is Oxygen!"
 	line "I am the developer"
@@ -190,6 +195,15 @@ UnownKingPokeBallText:
 	para "He's staring"
 	line "at OXYGEN's"
 	cont "notebook."
+	done
+
+PartyFullGiftText:
+	text "Oh! Uhh, your"
+	line "party is full."
+
+	para "No worries! Just"
+	line "come back when."
+	cont "have space."
 	done
 
 ReceivedUnownKingText:

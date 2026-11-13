@@ -421,6 +421,9 @@ RestartMapMusic::
 	ret
 
 SpecialMapMusic::
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
+	jr nz, .cursed
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .surf
@@ -429,8 +432,6 @@ SpecialMapMusic::
 	ld a, [wStatusFlags2]
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
 	jr nz, .contest
-	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
-	jr nz, .cursed
 
 .no
 	and a

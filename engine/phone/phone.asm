@@ -322,7 +322,7 @@ MakePhoneCallFromPokegear:
 	call GetMapPhoneService
 	and a
 	jr nz, .OutOfArea
-; If the Unown King wss liberated, don't do the call
+; If the Unown King was liberated, don't do the call
 	ld a, [wStatusFlags2]
 	bit STATUSFLAGS2_UNOWNKING_TRIGGER_F, a
 	jr nz, .OutOfArea
