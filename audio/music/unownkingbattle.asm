@@ -10,7 +10,7 @@ Music_UnownKingBattle_Ch1:
 	vibrato 18, 1, 5
 	note_type 12, 11, 7
 	octave 4
-	tempo 111
+	tempo 101
 	note A_, 1
 	note G#, 1
 	note G_, 4
@@ -30,7 +30,8 @@ Music_UnownKingBattle_Ch1:
 	octave 2
 	note A#, 2
 	volume_envelope 12, 2
-	rest 4
+	tempo 121
+	note E_, 4
 	note E_, 8
 	note E_, 8
 	note E_, 8
@@ -65,10 +66,11 @@ Music_UnownKingBattle_Ch1:
 .mainloop:
 	octave 4
 	vibrato 18, 9, 5
-	tempo 111
 	volume_envelope 12, 8
+	tempo 121
 	note G_, 6
 	note G_, 4
+	pitch_slide 1, 4, D_
 	note G_, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -84,6 +86,7 @@ Music_UnownKingBattle_Ch1:
 	volume_envelope 12, 8
 	note F#, 6
 	note F#, 4
+	pitch_slide 1, 4, D_
 	note F#, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -99,6 +102,7 @@ Music_UnownKingBattle_Ch1:
 	volume_envelope 12, 8
 	note F_, 6
 	note F_, 4
+	pitch_slide 1, 4, D_
 	note F_, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -114,6 +118,7 @@ Music_UnownKingBattle_Ch1:
 	volume_envelope 12, 8
 	note F#, 6
 	note F#, 4
+	pitch_slide 1, 4, D_
 	note F#, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -133,6 +138,7 @@ Music_UnownKingBattle_Ch1:
 	volume_envelope 12, 8
 	note G_, 6
 	note G_, 4
+	pitch_slide 1, 4, D_
 	note G_, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -148,6 +154,7 @@ Music_UnownKingBattle_Ch1:
 	volume_envelope 12, 8
 	note F#, 6
 	note F#, 4
+	pitch_slide 1, 4, D_
 	note F#, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -163,6 +170,7 @@ Music_UnownKingBattle_Ch1:
 	volume_envelope 12, 8
 	note F_, 6
 	note F_, 4
+	pitch_slide 1, 4, D_
 	note F_, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -178,6 +186,7 @@ Music_UnownKingBattle_Ch1:
 	volume_envelope 12, 8
 	note F#, 6
 	note F#, 4
+	pitch_slide 1, 4, D_
 	note F#, 2
 	volume_envelope 12, 7
 	note D_, 8
@@ -194,11 +203,11 @@ Music_UnownKingBattle_Ch1:
 	rest 1
 	octave 4
 	note A#, 2
-	octave 5
-	note D_, 3
-	octave 4
+	pitch_slide 1, 5, D_
+	note A#, 3
 	note A_, 5
-	note F#, 3
+	pitch_slide 1, 4, F#
+	note D_, 3
 	note D_, 5
 	octave 3
 	note G_, 2
@@ -213,54 +222,63 @@ Music_UnownKingBattle_Ch1:
 	octave 3
 	note F#, 4
 	note D_, 3
-	note G_, 5
-	note F#, 3
-	note A_, 5
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 1
-	note A_, 2
-	rest 1
-	note F#, 2
-	note D_, 4
-	note A_, 4
-	octave 5
-	note D_, 3
-	octave 4
-	note A_, 5
-	note F#, 3
+	pitch_slide 1, 3, G_
 	note D_, 5
-	octave 3
-	note G_, 2
-	note A#, 1
-	octave 4
-	note D_, 2
-	rest 1
-	octave 3
-	note A#, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note F#, 4
-	note D_, 3
-	note G_, 5
 	note F#, 3
-	note A_, 5
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 1
-	note A_, 2
-	rest 1
-	note F#, 2
-	note D_, 4
-	note A_, 4
-	octave 4
-	note D_, 3
-	note G_, 5
-	note D_, 3
+	pitch_slide 1, 3, A_
 	note F#, 5
+	octave 4
+	note C_, 2
+	octave 3
+	note A#, 1
+	note A_, 2
+	rest 1
+	note F#, 2
+	note D_, 4
+	pitch_slide 1, 3, A_
+	note D_, 4
+	octave 4
+	pitch_slide 1, 5, D_
+	note A_, 3
+	note A_, 5
+	pitch_slide 1, 4, F#
+	note D_, 3
+	note D_, 5
+	octave 3
+	note G_, 2
+	note A#, 1
+	octave 4
+	note D_, 2
+	rest 1
+	octave 3
+	note A#, 2
+	octave 4
+	note C_, 4
+	octave 3
+	note F#, 4
+	note D_, 3
+	pitch_slide 1, 3, G_
+	note D_, 5
+	note F#, 3
+	pitch_slide 1, 3, A_
+	note F#, 5
+	octave 4
+	note C_, 2
+	octave 3
+	note A#, 1
+	note A_, 2
+	rest 1
+	note F#, 2
+	note D_, 4
+	pitch_slide 1, 3, A_
+	note D_, 4
+	octave 4
+	note D_, 3
+	pitch_slide 1, 4, G_
+	note D_, 5
+	note D_, 3
+	pitch_slide 1, 4, F#
+	note D_, 5
 	octave 3
 	note A#, 2
 	octave 4
@@ -272,9 +290,11 @@ Music_UnownKingBattle_Ch1:
 	octave 3
 	note A#, 4
 	note G_, 3
-	note A#, 5
+	pitch_slide 1, 3, A#
+	note G_, 5
 	note F#, 3
-	note A_, 5
+	pitch_slide 1, 3, A_
+	note F#, 5
 	note D_, 1
 	note F#, 1
 	note A#, 1
@@ -292,9 +312,11 @@ Music_UnownKingBattle_Ch1:
 	note A#, 2
 	octave 5
 	note D_, 3
-	note G_, 5
+	pitch_slide 1, 5, G_
+	note D_, 5
 	note D_, 3
-	note F#, 5
+	pitch_slide 1, 5, F#
+	note D_, 5
 	octave 4
 	note A#, 2
 	octave 5
@@ -306,9 +328,11 @@ Music_UnownKingBattle_Ch1:
 	octave 4
 	note A#, 4
 	note G_, 3
-	note A#, 5
+	pitch_slide 1, 4, A#
+	note G_, 5
 	note F#, 3
-	note A_, 5
+	pitch_slide 1, 4, A_
+	note F#, 5
 	note D_, 1
 	note F#, 1
 	note A#, 1
@@ -338,9 +362,10 @@ Music_UnownKingBattle_Ch1:
 	rest 1
 	octave 3
 	note A_, 2
-	octave 4
 	volume_envelope 12, 8
-	note F_, 8
+	pitch_slide 1, 4, F_
+	note A_, 8
+	octave 4
 	volume_envelope 12, 7
 	note D_, 8
 	volume_envelope 12, 8
@@ -354,7 +379,8 @@ Music_UnownKingBattle_Ch1:
 	rest 1
 	octave 4
 	note D_, 2
-	note A_, 6
+	pitch_slide 1, 4, A_
+	note D_, 6
 	note A_, 1
 	note G_, 1
 	note F#, 4
@@ -373,9 +399,10 @@ Music_UnownKingBattle_Ch1:
 	rest 1
 	octave 3
 	note A_, 2
-	octave 4
 	volume_envelope 12, 8
-	note F_, 8
+	pitch_slide 1, 4, F_
+	note A_, 8
+	octave 4
 	volume_envelope 12, 7
 	note D_, 8
 	volume_envelope 12, 8
@@ -389,24 +416,30 @@ Music_UnownKingBattle_Ch1:
 	rest 1
 	octave 4
 	note D_, 2
-	note A_, 6
+	pitch_slide 1, 4, A_
+	note D_, 6
 	note F#, 1
 	note A_, 1
 	note A#, 4
 	octave 5
 	note C_, 4
 	volume_envelope 12, 8
-	note D_, 14
+	octave 4
+	pitch_slide 1, 5, D_
+	note A#, 14
+	octave 5
 	volume_envelope 12, 7
 	note C_, 1
 	note D_, 1
 	volume_envelope 12, 8
-	note F_, 6
+	pitch_slide 1, 5, F_
+	note D_, 6
 	note D_, 6
 	octave 4
 	note F#, 4
+	pitch_slide 1, 5, C_
+	note F#, 6
 	octave 5
-	note C_, 6
 	note D_, 6
 	note C_, 4
 	octave 4
@@ -414,14 +447,15 @@ Music_UnownKingBattle_Ch1:
 	note D_, 6
 	volume_envelope 12, 7
 	note A#, 2
-	note A_, 1
-	note A_, 1
-	note G_, 8
+	note A_, 2
+	pitch_slide 1, 4, G_
+	note A#, 8
 	rest 4
 	volume_envelope 12, 8
 	note D_, 4
+	pitch_slide 1, 5, D_
+	note A_, 6
 	octave 5
-	note D_, 6
 	note F_, 4
 	octave 4
 	volume_envelope 12, 7
@@ -439,26 +473,28 @@ Music_UnownKingBattle_Ch1:
 	note F#, 3
 	note D_, 1
 	note F#, 1
-	octave 5
 	volume_envelope 12, 8
-	note D_, 6
-	octave 4
+	pitch_slide 1, 5, D_
+	note F#, 6
 	volume_envelope 12, 7
 	note A_, 2
 	note A#, 4
 	note F#, 4
 	volume_envelope 12, 8
 	note G_, 8
-	note A_, 8
+	pitch_slide 1, 4, A_
+	note G_, 8
+	note A#, 8
+	pitch_slide 1, 5, D_
+	note A#, 8
+	note A#, 8
+	pitch_slide 1, 5, C_
 	note A#, 8
 	octave 5
 	note D_, 8
-	octave 4
-	note A#, 8
-	octave 5
-	note C_, 8
-	note D_, 8
-	note F#, 8
+	pitch_slide 1, 5, F#
+	note D_, 4
+	note D_, 4
 	sound_jump .mainloop
 
 Music_UnownKingBattle_Ch2:
