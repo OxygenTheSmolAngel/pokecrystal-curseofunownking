@@ -202,8 +202,8 @@ PartyFullGiftText:
 	line "party is full."
 
 	para "No worries! Just"
-	line "come back when."
-	cont "have space."
+	line "come back when"
+	cont "you have space."
 	done
 
 ReceivedUnownKingText:
