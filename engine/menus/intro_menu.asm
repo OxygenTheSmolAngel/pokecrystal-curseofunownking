@@ -754,15 +754,7 @@ InitializeParty:
 	predef TryAddMonToParty
 	ld b, CAUGHT_BY_UNKNOWN
 	farcall SetGiftPartyMonCaughtData
-	ld hl, wPartyMonNicknames
-	call SkipNames
-	ld a, [wPartyCount]
-	dec a
-	ld hl, wPartyMonOTs
-	call SkipNames
 
-	xor a ; PARTYMON
-	ld [wMonType], a
 	ld a, SLOWBRO
 	ld [wCurPartySpecies], a
 	ld a, 32
@@ -770,15 +762,7 @@ InitializeParty:
 	predef TryAddMonToParty
 	ld b, CAUGHT_BY_UNKNOWN
 	farcall SetGiftPartyMonCaughtData
-	ld hl, wPartyMonNicknames
-	call SkipNames
-	ld a, [wPartyCount]
-	dec a
-	ld hl, wPartyMonOTs
-	call SkipNames
 
-	xor a ; PARTYMON
-	ld [wMonType], a
 	ld a, LAPRAS
 	ld [wCurPartySpecies], a
 	ld a, 63
@@ -786,15 +770,7 @@ InitializeParty:
 	predef TryAddMonToParty
 	ld b, CAUGHT_BY_UNKNOWN
 	farcall SetGiftPartyMonCaughtData
-	ld hl, wPartyMonNicknames
-	call SkipNames
-	ld a, [wPartyCount]
-	dec a
-	ld hl, wPartyMonOTs
-	call SkipNames
-
-	xor a ; PARTYMON
-	ld [wMonType], a
+	
 	ld a, SANDSHREW
 	ld [wCurPartySpecies], a
 	ld a, 6
@@ -802,15 +778,7 @@ InitializeParty:
 	predef TryAddMonToParty
 	ld b, CAUGHT_BY_UNKNOWN
 	farcall SetGiftPartyMonCaughtData
-	ld hl, wPartyMonNicknames
-	call SkipNames
-	ld a, [wPartyCount]
-	dec a
-	ld hl, wPartyMonOTs
-	call SkipNames
-
-	xor a ; PARTYMON
-	ld [wMonType], a
+	
 	ld a, ABRA
 	ld [wCurPartySpecies], a
 	ld a, 12
@@ -818,15 +786,7 @@ InitializeParty:
 	predef TryAddMonToParty
 	ld b, CAUGHT_BY_UNKNOWN
 	farcall SetGiftPartyMonCaughtData
-	ld hl, wPartyMonNicknames
-	call SkipNames
-	ld a, [wPartyCount]
-	dec a
-	ld hl, wPartyMonOTs
-	call SkipNames
-
-	xor a ; PARTYMON
-	ld [wMonType], a
+	
 	ld a, PIDGEY
 	ld [wCurPartySpecies], a
 	ld a, 3
@@ -834,12 +794,6 @@ InitializeParty:
 	predef TryAddMonToParty
 	ld b, CAUGHT_BY_UNKNOWN
 	farcall SetGiftPartyMonCaughtData
-	ld hl, wPartyMonNicknames
-	call SkipNames
-	ld a, [wPartyCount]
-	dec a
-	ld hl, wPartyMonOTs
-	call SkipNames
 	ret
 
 InitializeBox:
@@ -854,8 +808,6 @@ InitializeBox:
 	farcall LoadEnemyMon
 	predef SendMonIntoBox
 
-	xor a ; BOXMON
-	ld [wMonType], a
 	ld a, MEW
 	ld [wTempEnemyMonSpecies], a
 	ld a, 15
@@ -865,8 +817,6 @@ InitializeBox:
 	farcall LoadEnemyMon
 	predef SendMonIntoBox
 
-	xor a ; BOXMON
-	ld [wMonType], a
 	ld a, HO_OH
 	ld [wTempEnemyMonSpecies], a
 	ld a, 60

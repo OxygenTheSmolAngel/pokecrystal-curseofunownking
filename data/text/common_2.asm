@@ -1606,7 +1606,7 @@ _CreditsText::
 	cont "FNF: Unown King's"
 	cont "Curse - Liberation"
 	cont "(Composed by"
-	cont "Corn_Yumi)"
+	cont "Corn Yumi)"
 
 	para "Special Thanks:"
 

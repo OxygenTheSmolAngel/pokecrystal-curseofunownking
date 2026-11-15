@@ -33,16 +33,16 @@ FoundCollectedTile2Text:
 	cont "despite his"
 	cont "calm nature."
 
-	para "But when he gets"
-	line "hungry, he would"
-	cont "hunt down any"
+	para "But whenever he"
+	line "gets hungry, he"
+	cont "hunts down any"
 	cont "living being he"
 	cont "comes across."
-	
-	para "And then he"
-	line "would kill and"
-	cont "devour his prey."
-	
+
+    para "He then kills and"
+    line "devours his prey"
+	cont "mercilessly."
+
 	para "He was given this"
 	line "trait to keep a"
 	cont "balance in the"
@@ -50,18 +50,30 @@ FoundCollectedTile2Text:
 	
 	para "But one day..."
 	line "He was feeling"
-	cont "neglected by his"
-	cont "superiors."
+	cont "neglected by the"
+	cont "four gods."
 	
+    para "He feels as if"
+	line "they treated him"
+	cont "as disposable"
+	cont "and worthless."
+
 	para "In a fit of rage,"
-	line "he decided to do"
+	line "he planned to do"
 	cont "something to get"
 	cont "his revenge."
 	
-	para "Exterminate the"
-	line "human race and"
+	para "He planned to"
+	line "exterminate the"
+	cont "human race and"
 	cont "leave Johto and"
 	cont "Kanto in ruin."
+
+	para "Through this"
+	line "rampage would he"
+	cont "hope to prove his"
+	cont "strenght to his"
+	cont "superiors."
 	done
 
 TileNoRoom2:

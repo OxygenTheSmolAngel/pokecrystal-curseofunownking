@@ -1895,7 +1895,7 @@ _FinalSpeechText::
 
     para "You just freed the"
     line "BEAST and doomed"
-    cont "the human race!"
+    cont "humanity!"
 
     para "I couldn't have"
     line "done it without"

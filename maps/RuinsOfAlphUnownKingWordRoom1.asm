@@ -37,7 +37,7 @@ FoundCollectedTileText:
 	cont "certain concepts."
 	
 	para "Those concepts"
-	line "being Time, Space,"
+	line "were Time, Space,"
 	cont "and Antimatter."
 	
     para "And then there's"
