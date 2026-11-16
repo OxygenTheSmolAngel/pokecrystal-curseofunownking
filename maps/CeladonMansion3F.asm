@@ -26,10 +26,20 @@ GameFreakGameDesignerScript:
 	writetext GameFreakGameDesignerPauseForDiplomaText
 	promptbutton
 	special Diploma
+	checkevent EVENT_DESIGNER_BANTER
+	iffalse .CeaseAndDesist
 	writetext GameFreakGameDesignerAfterDiplomaText
 	waitbutton
 	closetext
 	setevent EVENT_ENABLE_DIPLOMA_PRINTING
+	end
+
+.CeaseAndDesist
+    writetext GameFreakGameDesignerAfterDiplomaTextAlt
+	waitbutton
+	closetext
+	setevent EVENT_ENABLE_DIPLOMA_PRINTING
+	setevent EVENT_DESIGNER_BANTER
 	end
 
 GameFreakGraphicArtistScript:
@@ -110,6 +120,49 @@ GameFreakGameDesignerAfterDiplomaText:
 
 	para "You should go show"
 	line "it off."
+	done
+
+GameFreakGameDesignerAfterDiplomaTextAlt:
+	text "The GRAPHIC ARTIST"
+	line "will print out a"
+	cont "DIPLOMA for you."
+
+	para "You should go show"
+	line "it off."
+
+	para "...Also, you know"
+	line "the guy who stays"
+	cont "on the rooftop?"
+
+	para "Could you let him"
+	line "know that we are"
+	cont "sending him a"
+	cont "cease-and-desist"
+	cont "letter?"
+
+    para "He hacked this"
+	line "game's code to"
+	cont "spread a fake"
+	cont "rumor in his own"
+	cont "version."
+
+	para "Like, a rumor of"
+	line "some kind of"
+	cont "#MON that kills"
+	cont "living beings for"
+	cont "food."
+
+	para "We at GAME FREAK"
+	line "find that very"
+	cont "blasphemous."
+
+	para "We'd never make"
+	line "anything like that"
+	cont "for our family-"
+	cont "friendly brand."
+
+    para "Maybe you should"
+	line "go tell him."
 	done
 
 GameFreakGraphicArtistText:
