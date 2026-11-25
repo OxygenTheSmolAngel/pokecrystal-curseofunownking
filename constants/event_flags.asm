@@ -1473,7 +1473,9 @@
 	const EVENT_TILEPIECE1
 	const EVENT_TILEPIECE2
 	const EVENT_PUZZLEREADY
-; Unused: next 48 events
+	const EVENT_ILEX_FOREST_EGG_ROOM
+	const EVENT_GOT_EGG_FROM_MAN
+; Unused: next 46 events
 
 	const_next 2048
 DEF NUM_EVENTS EQU const_value ; 800

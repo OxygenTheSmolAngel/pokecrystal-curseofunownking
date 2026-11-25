@@ -135,7 +135,7 @@ ItemNames::
 	li "BASEMENT KEY"
 	li "PASS"
 	li "TERU-SAMA"
-	li "TERU-SAMA"
+	li "EGG"
 	li "TERU-SAMA"
 	li "CHARCOAL"
 	li "BERRY JUICE"

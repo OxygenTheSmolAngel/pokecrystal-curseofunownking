@@ -998,6 +998,24 @@ HatchEggScript:
 	end
 
 WarpToNewMapScript:
+	; Rarely redirect Ilex Forest's Azalea Gate warps to Egg Room.
+	checkevent EVENT_ILEX_FOREST_EGG_ROOM
+	iftrue .NormalWarp
+	readmem wPrevMapGroup
+	ifnotequal MAPGROUP_DUNGEONS, .NormalWarp
+	readmem wPrevMapNumber
+	ifnotequal MAP_ILEX_FOREST, .NormalWarp
+	readmem wPrevWarp
+	ifequal 2, .CheckEggRoomChance
+	ifnotequal 3, .NormalWarp
+.CheckEggRoomChance:
+    random 50
+    ifnotequal 0, .NormalWarp
+	setevent EVENT_ILEX_FOREST_EGG_ROOM
+	warpsound
+	warp EGG_ROOM, 14, 24
+	end
+.NormalWarp:
 	warpsound
 	newloadmap MAPSETUP_DOOR
 	end

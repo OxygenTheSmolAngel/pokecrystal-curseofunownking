@@ -136,7 +136,7 @@ ItemDescriptions:
 	dw BasementKeyDesc
 	dw PassDesc
 	dw QuestionMarkDesc
-	dw QuestionMarkDesc
+	dw EggDesc
 	dw QuestionMarkDesc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
@@ -756,6 +756,10 @@ BasementKeyDesc:
 PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
+
+EggDesc:
+	db   "Not so important,"
+	next "not so unimportant@"
 
 CharcoalDesc:
 	db   "Powers up fire-"

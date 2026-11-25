@@ -154,6 +154,7 @@ SECTION "Extra Songs 3", ROMX
 
 INCLUDE "audio/music/unownkingbattle.asm"
 INCLUDE "audio/music/ruinsofalphinteriorslow.asm"
+INCLUDE "audio/music/man.asm"
 
 SECTION "Sound Effects", ROMX
 

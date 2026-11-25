@@ -95,6 +95,7 @@ INCLUDE "maps/TeamRocketBaseB1F.asm"
 INCLUDE "maps/TeamRocketBaseB2F.asm"
 INCLUDE "maps/TeamRocketBaseB3F.asm"
 INCLUDE "maps/IlexForest.asm"
+INCLUDE "maps/EggRoom.asm"
 
 
 SECTION "Map Scripts 7", ROMX

@@ -149,7 +149,7 @@ ItemEffects:
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
 	dw NoEffect            ; ITEM_87
-	dw NoEffect            ; ITEM_88
+	dw EggEffect           ; EGG_ITEM
 	dw NoEffect            ; ITEM_89
 	dw NoEffect            ; CHARCOAL
 	dw RestoreHPEffect     ; BERRY_JUICE
@@ -2550,6 +2550,21 @@ OpenBox:
 
 NoEffect:
 	jp IsntTheTimeMessage
+
+EggEffect:
+	ld hl, EggUsedText
+	call PrintText
+	push de
+	ld de, SFX_KEY_ITEM
+	call WaitPlaySFX
+	pop de
+	call WaitSFX
+	call WaitPressAorB_BlinkCursor
+	ret
+
+EggUsedText:
+	text "You used the EGG."
+	done
 
 Play_SFX_FULL_HEAL:
 	push de

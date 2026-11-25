@@ -106,6 +106,7 @@ Music:
 	dba Music_BattleTowerTheme
 	dba Music_SuicuneBattle
 	dba Music_BattleTowerLobby
+	dba Music_Man
 	dba Music_MobileCenter
 	dba Music_UnownKingBattle
 	dba Music_RuinsOfAlphInteriorSlow
