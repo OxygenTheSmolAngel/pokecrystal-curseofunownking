@@ -260,10 +260,16 @@ SetDefaultBoxNames:
 	ld a, c
 	cp NUM_BOXES
 	jr c, .loop
+	ld hl, wBoxNames
+	ld de, .FirstBox
+	call CopyName2
 	ret
 
 .Box:
-	db "PANDORA@"
+	db "BOX@"
+
+.FirstBox:
+	db "Pandora's Box@"
 
 InitializeMagikarpHouse:
 	ld hl, wBestMagikarpLengthFeet

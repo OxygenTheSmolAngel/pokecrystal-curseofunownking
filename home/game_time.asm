@@ -1,11 +1,14 @@
 ResetGameTime::
 	xor a
 	ld [wGameTimeCap], a
-	ld [wGameTimeHours], a
-	ld [wGameTimeHours + 1], a
-	ld [wGameTimeMinutes], a
 	ld [wGameTimeSeconds], a
 	ld [wGameTimeFrames], a
+	ld a, HIGH(662)
+	ld [wGameTimeHours], a
+	ld a, LOW(662)
+	ld [wGameTimeHours + 1], a
+	ld a, 50
+	ld [wGameTimeMinutes], a
 	ret
 
 GameTimer::
